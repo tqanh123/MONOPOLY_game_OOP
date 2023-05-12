@@ -2,10 +2,12 @@ package Main;
 
 import javax.swing.JPanel;
 
+import button.ButtonHandler;
+import button.DiceButton;
 import place.Menu;
 import place.Places;
 
-import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
@@ -24,11 +26,20 @@ public class GamePanel extends JPanel implements Runnable{
 
     int FPS = 60;
 
+    ButtonHandler buttonH;
     Places boardPlaces = new Places(this);
     Menu menuPlace = new Menu(this);
     Thread gameThread;
+    DiceButton diceButton = new DiceButton(this);
+
+    // GAME STATE 
+    public int gameState = 1;
+    public final int playState = 1;
+    public final int rollState = 2;
 
     public GamePanel() {
+        this.setPreferredSize(new Dimension(this.screenWidth, this.screenHeight));
+        this.setDoubleBuffered(true);
     }
 
     public void startgameThread() {
@@ -47,24 +58,27 @@ public class GamePanel extends JPanel implements Runnable{
         long currentTime;
         long timer = 0;
         int drawCount = 0;
-
+        
         while (gameThread != null) {
-
+            
             currentTime = System.nanoTime();
-
             delta += (currentTime - lastTime) / drawInterval;
             timer += (currentTime - lastTime) ;
             lastTime = currentTime;
-
+            
             if (delta >= 1) {
                 update();
                 repaint();
                 delta--;
                 drawCount++;
             }
-            
+        
             if (timer >= 1000000000) {
                 System.out.println("FPS" + drawCount);
+                if (gameState == rollState) {
+                    gameState = playState;
+                    // diceButton.setIsRoll(true);
+                }
                 drawCount = 0;
                 timer = 0;
             }
@@ -72,7 +86,8 @@ public class GamePanel extends JPanel implements Runnable{
     }
     
     public void update() {
-        menuPlace.update();
+        // menuPlace.update();
+        if (gameState == rollState) diceButton.update();
     }
 
     public void paintComponent(Graphics g) {
@@ -83,10 +98,13 @@ public class GamePanel extends JPanel implements Runnable{
 
         boardPlaces.draw(g2);
         menuPlace.draw(g2);
+        // diceButton.getRollButton();
+        diceButton.Draw(g2);
+        
+        g2.dispose();
+        // buttonH.drawBox(g2);
         // g2.setColor(Color.white);
         // g2.fillRect(0, 0, boardsize, boardsize);
-
-        g2.dispose();
     }
     
 }
