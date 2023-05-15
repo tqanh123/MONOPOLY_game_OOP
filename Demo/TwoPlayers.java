@@ -7,7 +7,7 @@
  *
  * @author acer
  */
-//import Main.Main;
+import Main.Main;
 
 public class TwoPlayers extends javax.swing.JFrame {
 
