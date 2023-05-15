@@ -23,7 +23,7 @@ public class PlayerInfo extends Place{
     public void getBackGroundImage() {
         try {
             playerInfo[0] = new Place();
-            playerInfo[0].image = ImageIO.read(getClass().getResourceAsStream("/res/BackGround/background1.jpg"));
+            playerInfo[0].image = ImageIO.read(getClass().getResourceAsStream("/res/BackGround/background1.png"));
             
         } catch (IOException e) {
             e.printStackTrace();

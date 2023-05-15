@@ -98,7 +98,6 @@ public class GamePanel extends JPanel implements Runnable{
 
         boardPlaces.draw(g2);
         menuPlace.draw(g2);
-        // diceButton.getRollButton();
         diceButton.Draw(g2);
         
         g2.dispose();
