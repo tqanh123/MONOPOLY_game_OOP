@@ -22,7 +22,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     public final int boardsize = board * place * originalTileSize;
     final int screenWidth = originalTileSize * (board * place + infoPlayer);
-    final int screenHeight = originalTileSize * (board + 1) * place;
+    final int screenHeight = boardsize;
 
     int FPS = 60;
 
@@ -74,7 +74,7 @@ public class GamePanel extends JPanel implements Runnable{
             }
         
             if (timer >= 1000000000) {
-                System.out.println("FPS" + drawCount);
+
                 if (gameState == rollState) {
                     gameState = playState;
                     // diceButton.setIsRoll(true);
