@@ -1,13 +1,20 @@
 package Main;
 
 import java.awt.Color;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 
 public class Main {
-    
+    JFrame frame = new JFrame();
+     
     public static void main(String[] args) {
         
+       showWindow();
+        
+    }
+
+    public static void showWindow() {
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
@@ -24,7 +31,11 @@ public class Main {
         window.setVisible(true);
 
         gamePanel.startgameThread();
-        
+        gamePanel.setupGame();
+    }
+
+    public static Font deriveFont(float f) {
+        return null;
     }
 
 }

@@ -6,24 +6,24 @@ import javax.imageio.ImageIO;
 
 import Main.GamePanel;
 
-public class PlayerInfo extends Place{
+public class PlayerInfo extends Bufferimg{
 
     GamePanel gp;
-    Place[] playerInfo;
+    Bufferimg[] playerInfo;
 
     public PlayerInfo (GamePanel gp) {
         
         this.gp = gp;
 
-        playerInfo = new Place[10];
+        playerInfo = new Bufferimg[10];
 
         getBackGroundImage();
     }
 
     public void getBackGroundImage() {
         try {
-            playerInfo[0] = new Place();
-            playerInfo[0].image = ImageIO.read(getClass().getResourceAsStream("/res/BackGround/background1.jpg"));
+            playerInfo[0] = new Bufferimg();
+            playerInfo[0].image = ImageIO.read(getClass().getResourceAsStream("/res/BackGround/background1.png"));
             
         } catch (IOException e) {
             e.printStackTrace();
