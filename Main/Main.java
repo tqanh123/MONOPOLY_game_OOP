@@ -1,11 +1,13 @@
 package Main;
 
 import java.awt.Color;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 
 public class Main {
-    
+    JFrame frame = new JFrame();
+     
     public static void main(String[] args) {
         
         JFrame window = new JFrame();
@@ -25,6 +27,13 @@ public class Main {
 
         gamePanel.startgameThread();
         
+    }
+
+    public void Window() {
+    }
+
+    public static Font deriveFont(float f) {
+        return null;
     }
 
 }
