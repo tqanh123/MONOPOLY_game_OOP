@@ -16,6 +16,9 @@ JButton myButton = new JButton("Play");
 JButton myButton1 = new JButton("Options");
 JButton myButton2 = new JButton("Quit");
 JButton myButton3 = new JButton("Rule");
+    /**
+     * 
+     */
     LaunchPage(){
 
     myButton.setBounds(100, 120, 200, 40);
