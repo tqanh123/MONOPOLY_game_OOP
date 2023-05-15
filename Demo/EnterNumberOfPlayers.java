@@ -103,7 +103,7 @@ public class EnterNumberOfPlayers extends javax.swing.JFrame {
             FourPlayers four = new FourPlayers();
             four.setVisible(true);
         } else if(num == 3){
-            //ThreePlayers three = new ThreePlayers();
+            ThreePlayers three = new ThreePlayers();
             three.setVisible(true);
         } else if(num == 2){
             TwoPlayers two = new TwoPlayers();
