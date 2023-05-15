@@ -31,7 +31,7 @@ JButton myButton3 = new JButton("Rule");
     frame.setLayout(null);
     frame.setVisible(true);
     //Action for "Play" Button
-    private void myButtonActionPerformed(java.awt.event.ActionEvent evt){
+    private void myButtonActionPerformed(ActionEvent evt){
         EnterNumberOfPlayers enterNumberOfPlayers = new EnterNumberOfPlayers();
     }
 
