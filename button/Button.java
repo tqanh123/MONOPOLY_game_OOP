@@ -4,6 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
+import java.awt.Color;
 import java.awt.event.*;
 
 import Main.GamePanel;
@@ -33,6 +34,7 @@ public abstract class Button implements ActionListener {
     public void getButtonLand() {
         
         JButton b = new JButton("hello");
+        b.setBackground(Color.LIGHT_GRAY);
         b.setBounds(landX, landY, landWidth, landHeight);
         this.getGp().setLayout(null);
         this.getGp().add(b);

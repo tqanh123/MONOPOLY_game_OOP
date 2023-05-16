@@ -1,15 +1,12 @@
 package Main;
 
-import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 
-import button.ButtonHandler;
 import button.DiceButton;
 import place.Menu;
 import place.Places;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -27,7 +24,9 @@ public class GamePanel extends JPanel implements Runnable,MouseListener, MouseMo
     public final int board = 13;
     public final int infoPlayer = 16;
     public final int Menuheight = 3;
-   
+
+    public final int LandWidth = 72;
+    public final int LandHeight = 127;
   
  
     public final int boardsize = board * place * originalTileSize;
@@ -36,7 +35,6 @@ public class GamePanel extends JPanel implements Runnable,MouseListener, MouseMo
 
     int FPS = 60;
 
-    ButtonHandler buttonH;
     Places boardPlaces = new Places(this);
     Menu menuPlace = new Menu(this);
     Thread gameThread;

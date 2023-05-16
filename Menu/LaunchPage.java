@@ -7,7 +7,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import Main.Main;
-import Main.GamePanel;
+import page2.*;
+
 public class LaunchPage implements ActionListener{
 JFrame frame = new JFrame();
 JButton myButton = new JButton("Play");
