@@ -8,20 +8,15 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import Main.Main;
 import Main.GamePanel;
-import Demo.EnterNumberOfPlayers;
-
 public class LaunchPage implements ActionListener{
 JFrame frame = new JFrame();
 JButton myButton = new JButton("Play");
 JButton myButton1 = new JButton("Options");
-JButton myButton2 = new JButton("Quit");
-JButton myButton3 = new JButton("Rule");
-    /**
-     * 
-     */
+JButton myButton2 = new JButton("Rule");
+JButton myButton3 = new JButton("Quit");
     LaunchPage(){
 
-    myButton.setBounds(100, 120, 200, 40);
+    myButton.setBounds(100, 80, 200, 40);
     myButton.setFocusable(false);
     myButton.addActionListener(this);
 
@@ -30,12 +25,8 @@ JButton myButton3 = new JButton("Rule");
     frame.setSize(400, 400);
     frame.setLayout(null);
     frame.setVisible(true);
-    //Action for "Play" Button
-    private void myButtonActionPerformed(ActionEvent evt){
-        EnterNumberOfPlayers enterNumberOfPlayers = new EnterNumberOfPlayers();
-    }
 
-    myButton1.setBounds(100 , 160, 200, 40);
+    myButton1.setBounds(100 , 120, 200, 40);
     myButton1.setFocusable(false);
     myButton1.addActionListener(this);
 
@@ -46,7 +37,7 @@ JButton myButton3 = new JButton("Rule");
     frame.setVisible(true);
 
 
-     myButton2.setBounds(100, 200, 200, 40);
+     myButton2.setBounds(100, 160, 200, 40);
     myButton2.setFocusable(false);
     myButton2.addActionListener(this);
 
@@ -56,27 +47,22 @@ JButton myButton3 = new JButton("Rule");
     frame.setLayout(null);
     frame.setVisible(true);
 
+    myButton3.setBounds(100 , 200, 200, 40);
+    myButton3.setFocusable(false);
+    myButton3.addActionListener(this);
+
+    frame.add(myButton3);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setSize(400, 400);
+    frame.setLayout(null);
+    frame.setVisible(true);
 }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==myButton  ){
-            JFrame window = new JFrame();
-            window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            window.setResizable(false);
-            window.setTitle("Monopoly");
-            
-            GamePanel gamePanel = new GamePanel();
-            gamePanel.setBackground(Color.LIGHT_GRAY);
-        
-            window.add(gamePanel);
-    
-            window.pack();
-    
-            window.setLocationRelativeTo(null);
-            window.setVisible(true);
-    
-            gamePanel.startgameThread();
+            Main w2 = new Main();
+            w2.showWindow();
             this.dispose();
            
         }

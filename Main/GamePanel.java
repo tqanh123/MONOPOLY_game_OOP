@@ -1,17 +1,25 @@
 package Main;
 
+import javax.swing.JComponent;
 import javax.swing.JPanel;
+
 
 import button.ButtonHandler;
 import button.DiceButton;
 import place.Menu;
 import place.Places;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
-public class GamePanel extends JPanel implements Runnable{
+public class GamePanel extends JPanel implements Runnable,MouseListener, MouseMotionListener,KeyListener{
 
     public final int originalTileSize = 16;
     public final int building = 2;
@@ -19,10 +27,12 @@ public class GamePanel extends JPanel implements Runnable{
     public final int board = 13;
     public final int infoPlayer = 16;
     public final int Menuheight = 3;
-
+   
+  
+ 
     public final int boardsize = board * place * originalTileSize;
     final int screenWidth = originalTileSize * (board * place + infoPlayer);
-    final int screenHeight = boardsize;
+    final int screenHeight = originalTileSize * (board + 1) * place;
 
     int FPS = 60;
 
@@ -37,9 +47,18 @@ public class GamePanel extends JPanel implements Runnable{
     public final int playState = 1;
     public final int rollState = 2;
 
+    private enum STATE{
+        MENU, GAME
+    };
+    private STATE state = STATE.MENU;
+
     public GamePanel() {
+        addKeyListener(this);
+        addMouseListener(this);
+        addMouseMotionListener(this);
         this.setPreferredSize(new Dimension(this.screenWidth, this.screenHeight));
         this.setDoubleBuffered(true);
+       
     }
 
     public void startgameThread() {
@@ -52,6 +71,7 @@ public class GamePanel extends JPanel implements Runnable{
     @Override 
     public void run() {
 
+        
         double drawInterval = 1000000000/FPS;
         double delta = 0;
         long lastTime = System.nanoTime();
@@ -74,7 +94,7 @@ public class GamePanel extends JPanel implements Runnable{
             }
         
             if (timer >= 1000000000) {
-
+                System.out.println("FPS" + drawCount);
                 if (gameState == rollState) {
                     gameState = playState;
                     // diceButton.setIsRoll(true);
@@ -87,6 +107,7 @@ public class GamePanel extends JPanel implements Runnable{
     
     public void update() {
         // menuPlace.update();
+       
         if (gameState == rollState) diceButton.update();
     }
 
@@ -98,12 +119,65 @@ public class GamePanel extends JPanel implements Runnable{
 
         boardPlaces.draw(g2);
         menuPlace.draw(g2);
+        // diceButton.getRollButton();
         diceButton.Draw(g2);
         
         g2.dispose();
         // buttonH.drawBox(g2);
         // g2.setColor(Color.white);
         // g2.fillRect(0, 0, boardsize, boardsize);
+
+    }
+   
+    
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+      
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+       
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+       
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+      
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+     
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+      
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+       
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+      
     }
     
 }
