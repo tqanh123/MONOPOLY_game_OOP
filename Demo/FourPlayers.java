@@ -1,3 +1,6 @@
+
+import javax.swing.ImageIcon;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -7,12 +10,10 @@
  *
  * @author acer
  */
-import Main.Main;
-
 public class FourPlayers extends javax.swing.JFrame {
 
     /**
-     * Creates new form FourPlayer
+     * Creates new form FourPlayers
      */
     public FourPlayers() {
         initComponents();
@@ -27,154 +28,240 @@ public class FourPlayers extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jTextField3 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jTextField2 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jComboBox6 = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        player1 = new javax.swing.JComboBox<>();
+        player2 = new javax.swing.JComboBox<>();
+        play = new javax.swing.JButton();
+        player3 = new javax.swing.JComboBox<>();
+        pic2 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        pic3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        pic1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        player4 = new javax.swing.JComboBox<>();
+        pic4 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox<>();
-
-        jButton1.setText("Play");
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Character 1", "Character 2", "Character 3", "Character 4" }));
-
-        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField3.setText("Player 3");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Character 1", "Character 2", "Character 3", "Character 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setText("Player 1");
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Character 1", "Character 2", "Character 3", "Character 4" }));
-
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField2.setText("Player 2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton2.setText("Play");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        player1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Character", "Character 1", "Character 2", "Character 3", "Character 4" }));
+        player1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                player1ActionPerformed(evt);
             }
         });
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Character 1", "Character 2", "Character 3", "Character 4" }));
-
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Character 1", "Character 2", "Character 3", "Character 4" }));
-        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+        player2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Character", "Character 1", "Character 2", "Character 3", "Character 4" }));
+        player2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox5ActionPerformed(evt);
+                player2ActionPerformed(evt);
             }
         });
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Character 1", "Character 2", "Character 3", "Character 4" }));
+        play.setText("Play");
+        play.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Player 1");
+        player3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Character", "Character 1", "Character 2", "Character 3", "Character 4" }));
+        player3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                player3ActionPerformed(evt);
+            }
+        });
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Player 3");
+        pic2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Player 2");
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Player 4");
+        pic3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Character 1", "Character 2", "Character 3", "Character 4" }));
-        jComboBox8.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Player 1");
+
+        pic1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Player 3");
+
+        player4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Character", "Character 1", "Character 2", "Character 3", "Character 4" }));
+        player4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox8ActionPerformed(evt);
+                player4ActionPerformed(evt);
             }
         });
+
+        pic4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Player 4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBox5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(115, 115, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox6, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox8, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(39, 39, 39))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(player1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(player2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(79, 79, 79))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(42, 42, 42)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(player3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(pic3, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(42, 42, 42)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(player4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(pic4, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(pic1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
+                                .addComponent(pic2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(28, 28, 28))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(157, 157, 157))
+                .addComponent(play)
+                .addGap(44, 44, 44))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(91, 91, 91)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox8))
+                    .addComponent(player2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(player1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pic2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pic1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(115, 115, 115)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(player3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(pic3, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(player4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(pic4, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(play)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void player1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_player1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+        if(player1.getSelectedItem() == "Select Character"){
+            pic1.setIcon(null);
+        } else if (player1.getSelectedItem() == "Character 1"){
+            ImageIcon picture = new ImageIcon("res/Picture/c1.png");
+            pic1.setIcon(picture);
+        } else if (player1.getSelectedItem() == "Character 2"){
+            ImageIcon picture = new ImageIcon("res/Picture/c2.png");
+            pic1.setIcon(picture);
+        } else if (player1.getSelectedItem() == "Character 3"){
+            ImageIcon picture = new ImageIcon("res/Picture/c3.png");
+            pic1.setIcon(picture);
+        }else if (player1.getSelectedItem() == "Character 4"){
+            ImageIcon picture = new ImageIcon("res/Picture/c4.png");
+            pic1.setIcon(picture);
+        }
+    }//GEN-LAST:event_player1ActionPerformed
 
-    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+    private void player2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_player2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox5ActionPerformed
+        if(player2.getSelectedItem() == "Select Character"){
+            pic2.setIcon(null);
+        } else if (player2.getSelectedItem() == "Character 1"){
+            ImageIcon picture = new ImageIcon("res/Picture/c1.png");
+            pic2.setIcon(picture);
+        } else if (player2.getSelectedItem() == "Character 2"){
+            ImageIcon picture = new ImageIcon("res/Picture/c2.png");
+            pic2.setIcon(picture);
+        } else if (player2.getSelectedItem() == "Character 3"){
+            ImageIcon picture = new ImageIcon("res/Picture/c3.png");
+            pic2.setIcon(picture);
+        }else if (player2.getSelectedItem() == "Character 4"){
+            ImageIcon picture = new ImageIcon("res/Picture/c4.png");
+            pic2.setIcon(picture);
+        }
+    }//GEN-LAST:event_player2ActionPerformed
 
-    private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
+    private void playActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox8ActionPerformed
+        //Main main = new Main();
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_playActionPerformed
+
+    private void player3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_player3ActionPerformed
         // TODO add your handling code here:
-        Main main  = new Main();
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
+        if(player3.getSelectedItem() == "Select Character"){
+            pic3.setIcon(null);
+        } else if (player3.getSelectedItem() == "Character 1"){
+            ImageIcon picture = new ImageIcon("res/Picture/c1.png");
+            pic3.setIcon(picture);
+        } else if (player3.getSelectedItem() == "Character 2"){
+            ImageIcon picture = new ImageIcon("res/Picture/c2.png");
+            pic3.setIcon(picture);
+        } else if (player3.getSelectedItem() == "Character 3"){
+            ImageIcon picture = new ImageIcon("res/Picture/c3.png");
+            pic3.setIcon(picture);
+        }else if (player3.getSelectedItem() == "Character 4"){
+            ImageIcon picture = new ImageIcon("res/Picture/c4.png");
+            pic3.setIcon(picture);
+        }
+    }//GEN-LAST:event_player3ActionPerformed
+
+    private void player4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_player4ActionPerformed
+        // TODO add your handling code here:
+        if(player4.getSelectedItem() == "Select Character"){
+            pic4.setIcon(null);
+        } else if (player4.getSelectedItem() == "Character 1"){
+            ImageIcon picture = new ImageIcon("res/Picture/c1.png");
+            pic4.setIcon(picture);
+        } else if (player4.getSelectedItem() == "Character 2"){
+            ImageIcon picture = new ImageIcon("res/Picture/c2.png");
+            pic4.setIcon(picture);
+        } else if (player4.getSelectedItem() == "Character 3"){
+            ImageIcon picture = new ImageIcon("res/Picture/c3.png");
+            pic4.setIcon(picture);
+        }else if (player4.getSelectedItem() == "Character 4"){
+            ImageIcon picture = new ImageIcon("res/Picture/c4.png");
+            pic4.setIcon(picture);
+        }
+    }//GEN-LAST:event_player4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,7 +289,6 @@ public class FourPlayers extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FourPlayers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -213,21 +299,18 @@ public class FourPlayers extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
-    private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel pic1;
+    private javax.swing.JLabel pic2;
+    private javax.swing.JLabel pic3;
+    private javax.swing.JLabel pic4;
+    private javax.swing.JButton play;
+    private javax.swing.JComboBox<String> player1;
+    private javax.swing.JComboBox<String> player2;
+    private javax.swing.JComboBox<String> player3;
+    private javax.swing.JComboBox<String> player4;
     // End of variables declaration//GEN-END:variables
 }

@@ -23,34 +23,46 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+              <Component id="pic1" min="-2" pref="183" max="-2" attributes="0"/>
+              <EmptySpace pref="178" max="32767" attributes="0"/>
+              <Component id="pic2" min="-2" pref="183" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="player1" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="player2" max="32767" attributes="0"/>
+                  <Component id="jLabel2" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="90" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jComboBox2" max="32767" attributes="0"/>
-                          <Component id="jLabel2" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                      <Component id="pic3" min="-2" pref="183" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jComboBox3" alignment="1" max="32767" attributes="0"/>
+                          <Component id="player3" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -62,55 +74,66 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jComboBox2" max="32767" attributes="0"/>
+                      <Component id="player2" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jComboBox1" min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="player1" min="-2" pref="45" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="100" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="pic1" min="-2" pref="183" max="-2" attributes="0"/>
+                  <Component id="pic2" min="-2" pref="183" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jComboBox3" min="-2" pref="47" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+              <Component id="player3" min="-2" pref="47" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Component id="pic3" min="-2" pref="183" max="-2" attributes="0"/>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="player1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Character 1"/>
-            <StringItem index="1" value="Character 2"/>
-            <StringItem index="2" value="Character 3"/>
-            <StringItem index="3" value="Character 4"/>
+          <StringArray count="5">
+            <StringItem index="0" value="Select Character"/>
+            <StringItem index="1" value="Character 1"/>
+            <StringItem index="2" value="Character 2"/>
+            <StringItem index="3" value="Character 3"/>
+            <StringItem index="4" value="Character 4"/>
           </StringArray>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="player1ActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox2">
+    <Component class="javax.swing.JComboBox" name="player2">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Character 1"/>
-            <StringItem index="1" value="Character 2"/>
-            <StringItem index="2" value="Character 3"/>
-            <StringItem index="3" value="Character 4"/>
+          <StringArray count="5">
+            <StringItem index="0" value="Select Character"/>
+            <StringItem index="1" value="Character 1"/>
+            <StringItem index="2" value="Character 2"/>
+            <StringItem index="3" value="Character 3"/>
+            <StringItem index="4" value="Character 4"/>
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="player2ActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -123,17 +146,21 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox3">
+    <Component class="javax.swing.JComboBox" name="player3">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Character 1"/>
-            <StringItem index="1" value="Character 2"/>
-            <StringItem index="2" value="Character 3"/>
-            <StringItem index="3" value="Character 4"/>
+          <StringArray count="5">
+            <StringItem index="0" value="Select Character"/>
+            <StringItem index="1" value="Character 1"/>
+            <StringItem index="2" value="Character 2"/>
+            <StringItem index="3" value="Character 3"/>
+            <StringItem index="4" value="Character 4"/>
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="player3ActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -154,6 +181,21 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Player 3"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="pic2">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="pic3">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="pic1">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
       </Properties>
     </Component>
   </SubComponents>

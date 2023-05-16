@@ -1,3 +1,6 @@
+
+import javax.swing.ImageIcon;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -7,8 +10,6 @@
  *
  * @author acer
  */
-import Main.Main;
-
 public class ThreePlayers extends javax.swing.JFrame {
 
     /**
@@ -27,24 +28,32 @@ public class ThreePlayers extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        player1 = new javax.swing.JComboBox<>();
+        player2 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        player3 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        pic2 = new javax.swing.JLabel();
+        pic3 = new javax.swing.JLabel();
+        pic1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Character 1", "Character 2", "Character 3", "Character 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        player1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Character", "Character 1", "Character 2", "Character 3", "Character 4" }));
+        player1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                player1ActionPerformed(evt);
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Character 1", "Character 2", "Character 3", "Character 4" }));
+        player2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Character", "Character 1", "Character 2", "Character 3", "Character 4" }));
+        player2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                player2ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Play");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -53,7 +62,12 @@ public class ThreePlayers extends javax.swing.JFrame {
             }
         });
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Character 1", "Character 2", "Character 3", "Character 4" }));
+        player3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Character", "Character 1", "Character 2", "Character 3", "Character 4" }));
+        player3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                player3ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Player 2");
@@ -64,31 +78,47 @@ public class ThreePlayers extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Player 3");
 
+        pic2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        pic3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        pic1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(87, 87, 87))
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(57, 57, 57)
+                .addComponent(pic1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
+                .addComponent(pic2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(player1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(player2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(97, 97, 97))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(79, 79, 79))
+                        .addGap(75, 75, 75)
+                        .addComponent(pic3, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(95, 95, 95)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(161, 161, 161))
+                            .addComponent(player3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,32 +128,88 @@ public class ThreePlayers extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2))
+                        .addComponent(player2))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                        .addComponent(player1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pic1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pic2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addComponent(player3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pic3, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(jButton1))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void player1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_player1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+        if(player1.getSelectedItem() == "Select Character"){
+            pic1.setIcon(null);
+        } else if (player1.getSelectedItem() == "Character 1"){
+            ImageIcon picture = new ImageIcon("res/Picture/c1.png");
+            pic1.setIcon(picture);
+        } else if (player1.getSelectedItem() == "Character 2"){
+            ImageIcon picture = new ImageIcon("res/Picture/c2.png");
+            pic1.setIcon(picture);
+        } else if (player1.getSelectedItem() == "Character 3"){
+            ImageIcon picture = new ImageIcon("res/Picture/c3.png");
+            pic1.setIcon(picture);
+        }else if (player1.getSelectedItem() == "Character 4"){
+            ImageIcon picture = new ImageIcon("res/Picture/c4.png");
+            pic1.setIcon(picture);
+        }
+    }//GEN-LAST:event_player1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Main main = new Main();
-        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void player2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_player2ActionPerformed
+        // TODO add your handling code here:
+        if(player2.getSelectedItem() == "Select Character"){
+            pic2.setIcon(null);
+        } else if (player2.getSelectedItem() == "Character 1"){
+            ImageIcon picture = new ImageIcon("res/Picture/c1.png");
+            pic2.setIcon(picture);
+        } else if (player2.getSelectedItem() == "Character 2"){
+            ImageIcon picture = new ImageIcon("res/Picture/c2.png");
+            pic2.setIcon(picture);
+        } else if (player2.getSelectedItem() == "Character 3"){
+            ImageIcon picture = new ImageIcon("res/Picture/c3.png");
+            pic2.setIcon(picture);
+        }else if (player2.getSelectedItem() == "Character 4"){
+            ImageIcon picture = new ImageIcon("res/Picture/c4.png");
+            pic2.setIcon(picture);
+        }
+    }//GEN-LAST:event_player2ActionPerformed
+
+    private void player3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_player3ActionPerformed
+        // TODO add your handling code here:
+        if(player3.getSelectedItem() == "Select Character"){
+            pic3.setIcon(null);
+        } else if (player3.getSelectedItem() == "Character 1"){
+            ImageIcon picture = new ImageIcon("res/Picture/c1.png");
+            pic3.setIcon(picture);
+        } else if (player3.getSelectedItem() == "Character 2"){
+            ImageIcon picture = new ImageIcon("res/Picture/c2.png");
+            pic3.setIcon(picture);
+        } else if (player3.getSelectedItem() == "Character 3"){
+            ImageIcon picture = new ImageIcon("res/Picture/c3.png");
+            pic3.setIcon(picture);
+        }else if (player3.getSelectedItem() == "Character 4"){
+            ImageIcon picture = new ImageIcon("res/Picture/c4.png");
+            pic3.setIcon(picture);
+        }
+    }//GEN-LAST:event_player3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,11 +248,14 @@ public class ThreePlayers extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel pic1;
+    private javax.swing.JLabel pic2;
+    private javax.swing.JLabel pic3;
+    private javax.swing.JComboBox<String> player1;
+    private javax.swing.JComboBox<String> player2;
+    private javax.swing.JComboBox<String> player3;
     // End of variables declaration//GEN-END:variables
 }
