@@ -7,6 +7,9 @@
  *
  * @author acer
  */
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 import Main.Main;
 
 public class TwoPlayers extends javax.swing.JFrame {
@@ -26,6 +29,12 @@ public class TwoPlayers extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        final String[] names = {"c1.png", "c2.png",  "c3.png", "c4.png"};
+        final Icon[] icons = { 
+            new ImageIcon(getClass().getResource(names[0])),
+            new ImageIcon(getClass().getResource(names[1])), 
+            new ImageIcon(getClass().getResource(names[2])),
+            new ImageIcon(getClass().getResource(names[3]))};
 
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
