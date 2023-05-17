@@ -25,6 +25,7 @@ JButton myButton3 = new JButton("Quit");
     frame.setSize(400, 400);
     frame.setLayout(null);
     frame.setVisible(true);
+   
     Main main = new Main();
     main.showWindow();
     dispose();

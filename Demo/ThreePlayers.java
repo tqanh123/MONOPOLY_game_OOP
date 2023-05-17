@@ -177,6 +177,7 @@ public class ThreePlayers extends javax.swing.JFrame {
         Main main = new Main();
         main.showWindow();
         dispose();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void player2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_player2ActionPerformed
