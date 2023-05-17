@@ -10,6 +10,8 @@ import javax.swing.ImageIcon;
  *
  * @author acer
  */
+import Main.Main;
+
 public class FourPlayers extends javax.swing.JFrame {
 
     /**
@@ -222,8 +224,9 @@ public class FourPlayers extends javax.swing.JFrame {
     //Play Button
     private void playActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playActionPerformed
         // TODO add your handling code here:
-        
-        //Main main = new Main();
+        Main main = new Main();
+        main.showWindow();
+        dispose();
 
     }//GEN-LAST:event_playActionPerformed
 

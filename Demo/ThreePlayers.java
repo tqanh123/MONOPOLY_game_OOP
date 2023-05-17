@@ -10,6 +10,8 @@ import javax.swing.ImageIcon;
  *
  * @author acer
  */
+import Main.Main;
+
 public class ThreePlayers extends javax.swing.JFrame {
 
     /**
@@ -172,6 +174,9 @@ public class ThreePlayers extends javax.swing.JFrame {
     //PLay Button
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        Main main = new Main();
+        main.showWindow();
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void player2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_player2ActionPerformed
