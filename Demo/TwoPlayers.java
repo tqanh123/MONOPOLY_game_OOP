@@ -168,6 +168,7 @@ public class TwoPlayers extends javax.swing.JFrame {
         Main main = new Main();
         main.showWindow();
         dispose();
+
     }//GEN-LAST:event_playActionPerformed
 
     /**
