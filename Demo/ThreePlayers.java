@@ -169,6 +169,7 @@ public class ThreePlayers extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_player1ActionPerformed
 
+    //PLay Button
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -219,8 +219,10 @@ public class FourPlayers extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_player2ActionPerformed
 
+    //Play Button
     private void playActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playActionPerformed
         // TODO add your handling code here:
+        
         //Main main = new Main();
 
     }//GEN-LAST:event_playActionPerformed
