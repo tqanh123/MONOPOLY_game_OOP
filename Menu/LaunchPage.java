@@ -64,9 +64,8 @@ JButton myButton3 = new JButton("Quit");
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==myButton  ){
             EnterNumberOfPlayers w2 = new EnterNumberOfPlayers();
-            w2.showWindow();
+            w2.setVisible(true);
             this.dispose();
-           
         }
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
