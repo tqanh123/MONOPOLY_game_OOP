@@ -1,3 +1,4 @@
+package Demo;
 
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
@@ -160,4 +161,6 @@ public class EnterNumberOfPlayers extends javax.swing.JFrame {
     private javax.swing.JTextField numberOfPlayers;
     private java.awt.TextArea textArea1;
     // End of variables declaration//GEN-END:variables
+    public void showWindow() {
+    }
 }

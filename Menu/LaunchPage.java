@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import Main.Main;
 import Main.GamePanel;
+import Demo.EnterNumberOfPlayers;
+
 public class LaunchPage implements ActionListener{
 JFrame frame = new JFrame();
 JButton myButton = new JButton("Play");
@@ -25,10 +27,6 @@ JButton myButton3 = new JButton("Quit");
     frame.setSize(400, 400);
     frame.setLayout(null);
     frame.setVisible(true);
-   
-    Main main = new Main();
-    main.showWindow();
-    dispose();
 
     myButton1.setBounds(100 , 120, 200, 40);
     myButton1.setFocusable(false);
@@ -65,7 +63,7 @@ JButton myButton3 = new JButton("Quit");
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==myButton  ){
-            Main w2 = new Main();
+            EnterNumberOfPlayers w2 = new EnterNumberOfPlayers();
             w2.showWindow();
             this.dispose();
            
