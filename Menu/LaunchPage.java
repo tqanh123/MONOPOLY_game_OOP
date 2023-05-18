@@ -8,7 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import Main.Main;
 import Main.GamePanel;
-import Demo.EnterNumberOfPlayers;
+import Select.EnterNumberOfPlayers;
 
 public class LaunchPage implements ActionListener{
 JFrame frame = new JFrame();
