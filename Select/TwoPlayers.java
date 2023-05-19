@@ -166,8 +166,7 @@ public class TwoPlayers extends javax.swing.JFrame {
     //Play Button
     private void playActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playActionPerformed
         // TODO add your handling code here:
-        Main main = new Main();
-        main.showWindow();
+        Main.showWindow();
         dispose();
 
     }//GEN-LAST:event_playActionPerformed
