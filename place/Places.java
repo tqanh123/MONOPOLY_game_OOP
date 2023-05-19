@@ -35,12 +35,7 @@ public class Places {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-    
-    public void draw(Graphics2D g2) {
 
-        g2.drawImage(place[0].image, 0, 0, gp.boardsize, gp.boardsize, null);
-        
         int height = gp.LandHeight;
         int width = gp.LandWidth;
 
@@ -121,6 +116,13 @@ public class Places {
 
         int r26[] = {50, 100, 200, 400};
         lands[32] = new StationButton(gp, "LIVERPOOL ST. STATION", 0, r26, 1500, 750, 705, 415, height, width);
+
+    }
+    
+    public void draw(Graphics2D g2) {
+
+        g2.drawImage(place[0].image, 0, 0, gp.boardsize, gp.boardsize, null);
         
+
     }
 }

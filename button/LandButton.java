@@ -23,7 +23,7 @@ public class LandButton extends Button {
     }
 
     public String toString() {
-        return String.format("Number of house: %d\nNumber of hotel: %d\nRent: %d\nRent for 1 house: %d\nRent for 2 houses: %d\nRent for 3 houses: %d\nRent for 4 houses: %d\nRent for hotel: %d \n\nPurchase prices: %dSale prices: %d"
+        return String.format("Number of house: %d\nNumber of hotel: %d\nRent: %d\nRent for 1 house: %d\nRent for 2 houses: %d\nRent for 3 houses: %d\nRent for 4 houses: %d\nRent for hotel: %d \n\nPurchase prices: %d\nSale prices: %d"
         , numHouse, numHotels, rentAmount[0], rentAmount[1], rentAmount[2], rentAmount[3], rentAmount[4], rentAmount[5], super.getPurchaseAmount(), super.getSaleAmount());
     }
 

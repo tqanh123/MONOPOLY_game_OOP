@@ -1,8 +1,6 @@
-package page2;
+package Select;
 
 import javax.swing.ImageIcon;
-
-import Main.Main;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -13,6 +11,8 @@ import Main.Main;
  *
  * @author acer
  */
+import Main.Main;
+
 public class ThreePlayers extends javax.swing.JFrame {
 
     /**
@@ -172,11 +172,13 @@ public class ThreePlayers extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_player1ActionPerformed
 
+    //PLay Button
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            Main wmain = new Main();
-            wmain.showWindow();;
-            // frame.setVisible(false);
-            this.dispose();
+        // TODO add your handling code here:
+        Main main = new Main();
+        main.showWindow();
+        dispose();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void player2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_player2ActionPerformed

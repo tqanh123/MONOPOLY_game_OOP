@@ -1,14 +1,11 @@
 package Menu;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import Main.Main;
 import page2.*;
-
 public class LaunchPage implements ActionListener{
 JFrame frame = new JFrame();
 JButton myButton = new JButton("Play");
@@ -62,10 +59,10 @@ JButton myButton3 = new JButton("Quit");
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==myButton  ){
-            Main w2 = new Main();
-            w2.showWindow();
+            EnterNumberOfPlayers w2 = new EnterNumberOfPlayers();
+            w2.setVisible(true);
+            frame.setVisible(false);
             this.dispose();
-           
         }
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
