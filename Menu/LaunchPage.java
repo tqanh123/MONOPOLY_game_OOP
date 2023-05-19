@@ -35,7 +35,7 @@ JButton myButton3 = new JButton("Quit");
     frame.setVisible(true);
 
 
-     myButton2.setBounds(100, 160, 200, 40);
+    myButton2.setBounds(100, 160, 200, 40);
     myButton2.setFocusable(false);
     myButton2.addActionListener(this);
 
@@ -61,7 +61,7 @@ JButton myButton3 = new JButton("Quit");
         if(e.getSource()==myButton  ){
             EnterNumberOfPlayers w2 = new EnterNumberOfPlayers();
             w2.setVisible(true);
-            frame.setVisible(true);
+            frame.setVisible(false);
             dispose();
         }
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
