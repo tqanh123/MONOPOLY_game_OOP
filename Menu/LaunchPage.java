@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import page2.*;
+import Select.EnterNumberOfPlayers;
 public class LaunchPage implements ActionListener{
 JFrame frame = new JFrame();
 JButton myButton = new JButton("Play");
@@ -61,8 +61,8 @@ JButton myButton3 = new JButton("Quit");
         if(e.getSource()==myButton  ){
             EnterNumberOfPlayers w2 = new EnterNumberOfPlayers();
             w2.setVisible(true);
-            frame.setVisible(false);
-            this.dispose();
+            frame.setVisible(true);
+            dispose();
         }
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
