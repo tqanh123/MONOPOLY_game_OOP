@@ -31,6 +31,10 @@ public class Main {
         window.setVisible(true);
 
         gamePanel.startgameThread();
+<<<<<<< HEAD
+=======
+        gamePanel.setupGame();
+>>>>>>> b79656182be9b81a5677b7492b0f9e54e0890f2a
     }
 
     public static Font deriveFont(float f) {

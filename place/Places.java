@@ -10,9 +10,13 @@ import button.LandButton;
 import button.StationButton;
 import Main.Main;
 
-public class Places {
+public class Places extends placeDraw {
     GamePanel gp;
+<<<<<<< HEAD
     Place[] place;
+=======
+    Bufferimg[] place;
+>>>>>>> b79656182be9b81a5677b7492b0f9e54e0890f2a
     Button[] lands;
     Main m;
 
@@ -20,7 +24,11 @@ public class Places {
         
         this.gp = gp;
 
+<<<<<<< HEAD
         place = new Place[10];
+=======
+        place = new Bufferimg[10];
+>>>>>>> b79656182be9b81a5677b7492b0f9e54e0890f2a
         lands = new Button[40];
 
         getBackGroundImage();
@@ -29,16 +37,28 @@ public class Places {
     public void getBackGroundImage() {
         try {
 
+<<<<<<< HEAD
             place[0] = new Place();
+=======
+            place[0] = new Bufferimg();
+>>>>>>> b79656182be9b81a5677b7492b0f9e54e0890f2a
             place[0].image = ImageIO.read(getClass().getResourceAsStream("/res/BackGround/background1.png"));
             
         } catch (IOException e) {
             e.printStackTrace();
         }
+<<<<<<< HEAD
 
         int height = gp.LandHeight;
         int width = gp.LandWidth;
 
+=======
+        
+        int width = gp.LandWidth;
+        int height = gp.LandHeight;
+        
+
+>>>>>>> b79656182be9b81a5677b7492b0f9e54e0890f2a
         int r1[] = {5, 20, 40, 130, 270, 400};
         lands[1] = new LandButton(gp, "VINE STREET", 0, 0, r1 , 15, 8, gp.LandWidth*7 + gp.LandHeight, 705, width, height);
 
@@ -119,10 +139,17 @@ public class Places {
 
     }
     
+<<<<<<< HEAD
     public void draw(Graphics2D g2) {
 
         g2.drawImage(place[0].image, 0, 0, gp.boardsize, gp.boardsize, null);
         
+=======
+    @Override
+    public void draw(Graphics2D g2) {
+
+        g2.drawImage(place[0].image, 0, 0, gp.boardsize, gp.boardsize, null);
+>>>>>>> b79656182be9b81a5677b7492b0f9e54e0890f2a
 
     }
 }

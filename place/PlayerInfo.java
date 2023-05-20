@@ -8,23 +8,27 @@ import javax.imageio.ImageIO;
 import Main.GamePanel;
 import Select.EnterNumberOfPlayers;
 
-public class PlayerInfo extends Place{
+public class PlayerInfo extends Bufferimg{
 
     GamePanel gp;
-    Place[] playerInfo;
+    Bufferimg[] playerInfo;
 
     public PlayerInfo (GamePanel gp) {
         
         this.gp = gp;
 
-        playerInfo = new Place[10];
+        playerInfo = new Bufferimg[10];
 
         getBackGroundImage();
     }
 
     public void getBackGroundImage() {
         try {
+<<<<<<< HEAD
             playerInfo[0] = new Place();
+=======
+            playerInfo[0] = new Bufferimg();
+>>>>>>> b79656182be9b81a5677b7492b0f9e54e0890f2a
             playerInfo[0].image = ImageIO.read(getClass().getResourceAsStream("/res/BackGround/background1.png"));
             
         } catch (IOException e) {

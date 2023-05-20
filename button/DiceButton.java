@@ -6,10 +6,19 @@ import java.awt.Graphics2D;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+<<<<<<< HEAD
+=======
+import java.awt.image.BufferedImage;
+
+>>>>>>> b79656182be9b81a5677b7492b0f9e54e0890f2a
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 
 import Main.GamePanel;
+<<<<<<< HEAD
+=======
+import Main.UtilityTool;
+>>>>>>> b79656182be9b81a5677b7492b0f9e54e0890f2a
 
 public class DiceButton {
 
@@ -54,9 +63,30 @@ public class DiceButton {
         } catch (IOException e) {
             e.printStackTrace();
         }
+<<<<<<< HEAD
 
     }
 
+=======
+    }
+
+    // public BufferedImage setup(int index, String filePath) {
+
+    //     UtilityTool uTool = new UtilityTool();
+    //     BufferedImage image = null;
+
+    //     try {
+            
+    //         dices[index] = new Dice();
+    //         dices[index].image = ImageIO.read(getClass().getResourceAsStream("/res/Dice/Dice" + filePath + ".png"));
+    //         dices[index].image = uTool.scaleImage(dices[index].image, 100, 100);
+
+    //     } catch (Exception e) {
+    //         e.printStackTrace();
+    //     }
+    // }
+
+>>>>>>> b79656182be9b81a5677b7492b0f9e54e0890f2a
     public void getRollButton() {
         int x = gp.boardsize * 3 / 4;
         int y = gp.boardsize * 3 / 4;
@@ -92,9 +122,16 @@ public class DiceButton {
         rollButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
 
                 // rollButton.setEnabled(false);
                 gp.gameState = gp.rollState;
+=======
+                // rollButton.setEnabled(false);
+                gp.gameState = gp.rollState;
+                if (gp.gameState == gp.rollState) 
+                    gp.playSE(1);
+>>>>>>> b79656182be9b81a5677b7492b0f9e54e0890f2a
                
             }
         });
@@ -112,8 +149,28 @@ public class DiceButton {
         numDice2 = rand.nextInt(0, 6);
     }
 
+<<<<<<< HEAD
+=======
+    public int getNumDice1() {
+        return numDice1;
+    }
+
+    public int getNumDice2() {
+        return numDice2;
+    }
+
+    public int getTotalDice() {
+        return getNumDice1() + getNumDice2();
+        
+    }
+    
+>>>>>>> b79656182be9b81a5677b7492b0f9e54e0890f2a
     // public void setIsRoll(boolean enable) {
     //     rollButton.setEnabled(enable);
     // }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> b79656182be9b81a5677b7492b0f9e54e0890f2a
