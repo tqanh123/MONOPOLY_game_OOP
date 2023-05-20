@@ -7,8 +7,8 @@ public class StationButton extends ActiveButton {
     private int numStation;
     private int[] rentAmount = new int[4];
 
-    public StationButton(GamePanel gp, int id, String landName, int numStation, int[] rentAmount, int purchaseAmount, int saleAmount, int landX, int landY, int landWidth, int landHeight) {
-        super(gp, id, landName, purchaseAmount, saleAmount, landX, landY, landWidth, landHeight);
+    public StationButton(GamePanel gp, int id, String landName, int numStation, int[] rentAmount, int purchaseAmount, int saleAmount, int landX, int landY, int landWidth, int landHeight, boolean isOwn) {
+        super(gp, id, landName, purchaseAmount, saleAmount, landX, landY, landWidth, landHeight, isOwn);
         this.numStation = numStation;
         this.rentAmount = rentAmount;
     }

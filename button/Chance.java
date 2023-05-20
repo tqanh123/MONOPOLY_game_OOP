@@ -21,7 +21,7 @@ public class Chance extends Button {
     public int landWidth, landHeight;
 
     Bufferimg[] card;
-    private int numCards = 4;
+    private int numCards = 10;
     private int[] chanceId;
     private int chance;
     private int timeChane = 0;
@@ -35,11 +35,13 @@ public class Chance extends Button {
     }
 
     public  void  initialChance(){
+        getChanceImage();
         randId();
         font = new Font("Times New Roman", Font.PLAIN, 40);
     }
 
     public void getChanceImage() {
+        card = new Bufferimg[numCards];
         try {
 
             card[0] = new Bufferimg();
@@ -53,6 +55,24 @@ public class Chance extends Button {
 
             card[3] = new Bufferimg();
             card[3].image = ImageIO.read(getClass().getResourceAsStream("/res/Chance/GB3S.jpg"));
+
+            card[4] = new Bufferimg();
+            card[4].image = ImageIO.read(getClass().getResourceAsStream("/res/Chance/PE_50.jpg"));
+
+            card[5] = new Bufferimg();
+            card[5].image = ImageIO.read(getClass().getResourceAsStream("/res/Chance/Get150.jpg"));
+
+            card[6] = new Bufferimg();
+            card[6].image = ImageIO.read(getClass().getResourceAsStream("/res/Chance/Pay15.jpg"));
+
+            card[7] = new Bufferimg();
+            card[7].image = ImageIO.read(getClass().getResourceAsStream("/res/Chance/Repairs_Property.jpg"));
+
+            card[8] = new Bufferimg();
+            card[8].image = ImageIO.read(getClass().getResourceAsStream("/res/Chance/Jail.jpg"));
+
+            card[9] = new Bufferimg();
+            card[9].image = ImageIO.read(getClass().getResourceAsStream("/res/Chance/FreeJail.jpg"));
             
         } catch (IOException e) {
             e.printStackTrace();
@@ -61,6 +81,7 @@ public class Chance extends Button {
 
     public void draw(Graphics2D g2) {
         if (isChance == true) {
+
 
             g2.setColor(new Color(0, 0, 50, 200));
             g2.fillRect(0, 0, gp.boardsize, gp.boardsize);
@@ -82,9 +103,9 @@ public class Chance extends Button {
                 }
             });;
 
-            System.out.println(timeChane);
+            // System.out.println(timeChane);
             timeChane++;
-            if (timeChane > 80) {
+            if (timeChane > 50) {
                 isChance = false;
                 setChance();
             }
@@ -95,6 +116,7 @@ public class Chance extends Button {
     public void randId(){
         int i;
         Random rand = new Random();
+        chanceId = new int[numCards];
         chance = 0;
 
         for ( i = 0; i < numCards; i++) chanceId[i] = i;
@@ -122,10 +144,10 @@ public class Chance extends Button {
         if (chance == numCards) chance = 0;
     }
 
-    public void active() {
+    public int active() {
 
         isChance = true;
-        // return chanceId[chance];
+        return chanceId[chance];
 
     }
 
