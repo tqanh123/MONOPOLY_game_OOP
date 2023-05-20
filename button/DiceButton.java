@@ -6,7 +6,6 @@ import java.awt.Graphics2D;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
@@ -21,6 +20,7 @@ public class DiceButton {
     int numDice1 = 0;
     int numDice2 = 0;
     public JButton rollButton;
+    int rollCount;
     
     public DiceButton (GamePanel gp) {
 
@@ -59,21 +59,20 @@ public class DiceButton {
         }
     }
 
-    // public BufferedImage setup(int index, String filePath) {
+    public void setup(int index, String filePath) {
 
-    //     UtilityTool uTool = new UtilityTool();
-    //     BufferedImage image = null;
+        UtilityTool uTool = new UtilityTool();
 
-    //     try {
+        try {
             
-    //         dices[index] = new Dice();
-    //         dices[index].image = ImageIO.read(getClass().getResourceAsStream("/res/Dice/Dice" + filePath + ".png"));
-    //         dices[index].image = uTool.scaleImage(dices[index].image, 100, 100);
+            dices[index] = new Dice();
+            dices[index].image = ImageIO.read(getClass().getResourceAsStream("/res/Dice/" + filePath + ".png"));
+            dices[index].image = uTool.scaleImage(dices[index].image, 100, 100);
 
-    //     } catch (Exception e) {
-    //         e.printStackTrace();
-    //     }
-    // }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void getRollButton() {
         int x = gp.boardsize * 3 / 4;
@@ -112,12 +111,17 @@ public class DiceButton {
             public void actionPerformed(ActionEvent e) {
                 // rollButton.setEnabled(false);
                 gp.gameState = gp.rollState;
-                if (gp.gameState == gp.rollState) 
+                if (gp.gameState == gp.rollState) {
+
+                    rollCount = 0;
                     gp.playSE(1);
+                }
                
             }
         });
         
+        rollCount++;
+        if (rollCount > 60) gp.gameState = gp.playState;
         g2.drawImage(dices[numDice1].image, x, y, 100, 100, null);
         
         g2.drawImage(dices[numDice2].image, x + 100, y , 100, 100, null);
@@ -140,12 +144,6 @@ public class DiceButton {
     }
 
     public int getTotalDice() {
-        return getNumDice1() + getNumDice2();
-        
+        return getNumDice1() + getNumDice2() + 2;   
     }
-    
-    // public void setIsRoll(boolean enable) {
-    //     rollButton.setEnabled(enable);
-    // }
-
 }

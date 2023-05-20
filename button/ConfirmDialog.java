@@ -2,14 +2,12 @@ package button;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-@SuppressWarnings("serial")
 public class ConfirmDialog extends JFrame {
 
     public ConfirmDialog() {
@@ -27,36 +25,6 @@ public class ConfirmDialog extends JFrame {
 
         
     }
-
-    // public JPanel panel() {
-
-    //     JPanel panel = new JPanel();
-    //     panel.setBounds(0, 0, 444, 271);
-    //     panel.setBackground(new Color(176, 224, 230));
-    //     getContentPane().add(panel);
-    //     panel.setLayout(null);
-
-    //     JLabel lblIcon = new JLabel("");
-    //     lblIcon.setBounds(30, 30, 200, 200);
-    //     lblIcon.setIcon(new ImageIcon("trasure.jpg"));
-    //     panel.add(lblIcon);
-
-    //     JLabel lblText2 = new JLabel("Lauren is the 4th daughter!");
-    //     lblText2.setVerticalAlignment(SwingConstants.TOP);
-    //     lblText2.setFont(new Font("Tahoma", Font.ITALIC, 14));
-    //     lblText2.setHorizontalAlignment(SwingConstants.CENTER);
-    //     lblText2.setBounds(240, 130, 175, 100);
-    //     panel.add(lblText2);
-
-    //     JLabel lblText1 = new JLabel("Yaaaay!");
-    //     lblText1.setHorizontalAlignment(SwingConstants.CENTER);
-    //     lblText1.setFont(new Font("Tahoma", Font.ITALIC, 14));
-    //     lblText1.setBounds(240, 30, 175, 100);
-    //     panel.add(lblText1);
-
-    //     return panel;
-
-    // }
 
     public static void showOption(LandButton land) {
 

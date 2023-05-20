@@ -21,24 +21,22 @@ public class Chance extends Button {
     public int landWidth, landHeight;
 
     Bufferimg[] card;
-    private final int numCards = 4;
-    private static int[] chanceId;
-    private static int chance;
+    private int numCards = 4;
+    private int[] chanceId;
+    private int chance;
     private int timeChane = 0;
     private String message = "click any where in board play";
-    private Font font;
-    private static boolean isChance = false;
+    private  Font font;
+    private  boolean isChance;
 
-    public Chance (GamePanel gp, String landName, int landX, int landY, int landWidth, int landHeight, int chance) {
-        super(gp, landName, landX, landY, landWidth, landHeight);
-        this.chance = chance;
+    public Chance (GamePanel gp, int id, String landName, int landX, int landY, int landWidth, int landHeight, boolean isChance) {
+        super(gp, id, landName, landX, landY, landWidth, landHeight);
+        this.isChance = isChance;
+    }
 
-        card = new Bufferimg[10];
-        chanceId = new int[10];
-        font = new Font("Times New Roman", Font.PLAIN, 40);
-
-        getChanceImage();
+    public  void  initialChance(){
         randId();
+        font = new Font("Times New Roman", Font.PLAIN, 40);
     }
 
     public void getChanceImage() {
@@ -84,6 +82,7 @@ public class Chance extends Button {
                 }
             });;
 
+            System.out.println(timeChane);
             timeChane++;
             if (timeChane > 80) {
                 isChance = false;
@@ -123,10 +122,10 @@ public class Chance extends Button {
         if (chance == numCards) chance = 0;
     }
 
-    public static int active() {
+    public void active() {
 
         isChance = true;
-        return chanceId[chance];
+        // return chanceId[chance];
 
     }
 

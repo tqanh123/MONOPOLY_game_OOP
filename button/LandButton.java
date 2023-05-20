@@ -34,16 +34,16 @@ public class LandButton extends ActiveButton {
 
     public int mono = 1;
 
-    public LandButton(GamePanel gp, String landName, int numHouse, int numHotels, int rentAmount[], int purchaseAmount, int saleAmount, int landX, int landY, int landWidth, int landHeight) {
-        super(gp, landName, purchaseAmount, saleAmount, landX, landY, landWidth, landHeight);
+    public LandButton(GamePanel gp, int id, String landName, int numHouse, int numHotels, int rentAmount[], int purchaseAmount, int saleAmount, int landX, int landY, int landWidth, int landHeight) {
+        super(gp, id, landName, purchaseAmount, saleAmount, landX, landY, landWidth, landHeight);
         this.numHotels = numHotels;
         this.numHouse = numHouse;
         this.rentAmount = rentAmount;
     }
 
     public String toString() {
-        return String.format("Number of house: %d\nNumber of hotel: %d\nRent: %d\nRent for 1 house: %d\nRent for 2 houses: %d\nRent for 3 houses: %d\nRent for 4 houses: %d\nRent for hotel: %d"
-        , numHouse, numHotels, rentAmount[0], rentAmount[1], rentAmount[2], rentAmount[3], rentAmount[4], rentAmount[5] );
+        return String.format("Number of house: %d\nNumber of hotel: %d\nRent: %d\nRent for 1 house: %d\nRent for 2 houses: %d\nRent for 3 houses: %d\nRent for 4 houses: %d\nRent for hotel: %d \n\nPurchase prices: %d\nSale prices: %d"
+        , numHouse, numHotels, rentAmount[0], rentAmount[1], rentAmount[2], rentAmount[3], rentAmount[4], rentAmount[5], super.getPurchaseAmount(), super.getSaleAmount());
     }
 
     public int getTotalrent() {
@@ -77,9 +77,9 @@ public class LandButton extends ActiveButton {
     }
 
     public int getDirection() {
-        if (landX == 0) return 2;
-        else if (landY == 750) return 1;
-        else if (landY == 0) return 3;
+        if (getLandX() == 0) return 2;
+        else if (getLandY() == 750) return 1;
+        else if (getLandY() == 0) return 3;
         else return 4;
     }
 

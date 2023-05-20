@@ -34,8 +34,4 @@ public class Main {
         gamePanel.setupGame();
     }
 
-    public static Font deriveFont(float f) {
-        return null;
-    }
-
 }

@@ -5,7 +5,6 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
-import java.awt.Color;
 import java.awt.event.*;
 
 import Main.GamePanel;
@@ -14,12 +13,22 @@ public class Button implements ActionListener{
 
     GamePanel gp;
 
-    public String landName;
-    public int landX, landY;
-    public int landWidth, landHeight;
+    private String landName;
+    private int landX, landY;
+    private int landWidth, landHeight;
+    private int id;
 
-    public Button (GamePanel gp, String landName, int landX, int landY, int landWidth, int landHeight) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Button (GamePanel gp, int id, String landName, int landX, int landY, int landWidth, int landHeight) {
         this.gp = gp;
+        this.id = id;
         this.landName = landName;
         this.landX = landX;
         this.landY = landY;
@@ -28,11 +37,14 @@ public class Button implements ActionListener{
         getButton();
     }
 
+    // public void active(){
+        
+    // }
+
     public void getButton() {
         
         JButton b = new JButton("hello");
         b.setBounds(landX, landY, landWidth, landHeight);
-        System.out.print(getLandName());
         // b.setBackground(Color.BLACK);
         // b.setForeground(Color.CYAN);
         this.getGp().setLayout(null);
