@@ -2,19 +2,12 @@ package button;
 
 import java.awt.Graphics2D;
 
-// import javax.swing.JButton;
-// import javax.swing.JDialog;
-// import javax.swing.JOptionPane;
-
-// import java.awt.event.*;
-// import java.awt.*;
-
 import Main.GamePanel;
 
 public class LandButton extends ActiveButton {
     private int numHouse, numHotels;
     private int rentAmount[] = new int[6];
-    private boolean isOwn = false;
+    private boolean isOwn;
     private int host = 0;
     public int getHost() {
         return host;
@@ -34,8 +27,8 @@ public class LandButton extends ActiveButton {
 
     public int mono = 1;
 
-    public LandButton(GamePanel gp, int id, String landName, int numHouse, int numHotels, int rentAmount[], int purchaseAmount, int saleAmount, int landX, int landY, int landWidth, int landHeight) {
-        super(gp, id, landName, purchaseAmount, saleAmount, landX, landY, landWidth, landHeight);
+    public LandButton(GamePanel gp, int id, String landName, int numHouse, int numHotels, int rentAmount[], int purchaseAmount, int saleAmount, int landX, int landY, int landWidth, int landHeight, boolean isOwn) {
+        super(gp, id, landName, purchaseAmount, saleAmount, landX, landY, landWidth, landHeight, isOwn);
         this.numHotels = numHotels;
         this.numHouse = numHouse;
         this.rentAmount = rentAmount;
@@ -54,33 +47,6 @@ public class LandButton extends ActiveButton {
             return (rent[this.getNumHouse()] + rent[5] * this.getNumHotels()) * mono;
         }
 
-    }
-
-    public void draw(Graphics2D g2) {
-        if (isOwn()) {
-            String amount = String.valueOf(getTotalrent());
-            int direction = getDirection();
-
-            // switch(direction) {
-            //     case 1: 
-            //         int x = 
-            //     break;
-            // }
-
-        }
-    }
-
-    public void transaction(int playerId) {
-        if (isOwn() == false) {
-            
-        }
-    }
-
-    public int getDirection() {
-        if (getLandX() == 0) return 2;
-        else if (getLandY() == 750) return 1;
-        else if (getLandY() == 0) return 3;
-        else return 4;
     }
 
     public int getNumHouse() {
