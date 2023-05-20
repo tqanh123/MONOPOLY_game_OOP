@@ -120,6 +120,12 @@ public class EnterNumberOfPlayers extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public int getNum(){
+        String number = numberOfPlayers.getText();
+        int num = Integer.parseInt(number);
+        return num;
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -158,7 +164,7 @@ public class EnterNumberOfPlayers extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField numberOfPlayers;
+    public static javax.swing.JTextField numberOfPlayers;
     private java.awt.TextArea textArea1;
     // End of variables declaration//GEN-END:variables
     public void showWindow() {

@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import button.DiceButton;
 import place.Menu;
 import place.Places;
+import place.PlayerInfo;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -29,9 +30,9 @@ public class GamePanel extends JPanel implements Runnable,MouseListener, MouseMo
     public final int LandHeight = 127;
   
  
-    public final int boardsize = board * place * originalTileSize;
-    final int screenWidth = originalTileSize * (board * place + infoPlayer);
-    final int screenHeight = originalTileSize * (board + 1) * place;
+    public final int boardsize =832;
+    final int screenWidth = originalTileSize * ( infoPlayer )+ 832;
+    final int screenHeight = 832;
 
     int FPS = 60;
 
@@ -39,7 +40,7 @@ public class GamePanel extends JPanel implements Runnable,MouseListener, MouseMo
     Menu menuPlace = new Menu(this);
     Thread gameThread;
     DiceButton diceButton = new DiceButton(this);
-
+    PlayerInfo playerInfo = new PlayerInfo(this);
     // GAME STATE 
     public int gameState = 1;
     public final int playState = 1;
@@ -119,11 +120,13 @@ public class GamePanel extends JPanel implements Runnable,MouseListener, MouseMo
         menuPlace.draw(g2);
         // diceButton.getRollButton();
         diceButton.Draw(g2);
+        playerInfo.draw(g2);
         
         g2.dispose();
         // buttonH.drawBox(g2);
         // g2.setColor(Color.white);
         // g2.fillRect(0, 0, boardsize, boardsize);
+        
 
     }
    
