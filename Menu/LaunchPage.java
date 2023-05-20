@@ -1,72 +1,95 @@
 package Menu;
 
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import Select.EnterNumberOfPlayers;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import Main.Main;
+import Main.GamePanel;
 public class LaunchPage implements ActionListener{
-JFrame frame = new JFrame();
-JButton myButton = new JButton("Play");
-JButton myButton1 = new JButton("Options");
-JButton myButton2 = new JButton("Rule");
-JButton myButton3 = new JButton("Quit");
-    LaunchPage(){
-
-    myButton.setBounds(100, 80, 200, 40);
-    myButton.setFocusable(false);
-    myButton.addActionListener(this);
-
-    frame.add(myButton);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize(400, 400);
-    frame.setLayout(null);
-    frame.setVisible(true);
-
-    myButton1.setBounds(100 , 120, 200, 40);
-    myButton1.setFocusable(false);
-    myButton1.addActionListener(this);
-
-    frame.add(myButton1);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize(400, 400);
-    frame.setLayout(null);
-    frame.setVisible(true);
+    private JLabel myLabel;
+    private JFrame frame;
+    private JLabel backGround;
+    private JButton playButton;
+    private int width;
+    private int height;
+    private String backgroundFilePath;
 
 
-    myButton2.setBounds(100, 160, 200, 40);
-    myButton2.setFocusable(false);
-    myButton2.addActionListener(this);
+    LaunchPage(int w, int h, String backgroundFilePath){
+        this.width = w;
+        this.height = h;
+        this.backgroundFilePath = backgroundFilePath;
+    }
+    public void run() throws IOException{
+        frame = new JFrame("MONOPOLY");
+        playButton = new JButton("Play");
+        JButton optionsButton = new JButton("Options");
+        JButton ruleButton = new JButton("Rule");
+        JButton quitButton = new JButton("Quit");
+        File file = new File(backgroundFilePath);
+        System.out.println(file.exists());
+        BufferedImage image = ImageIO.read(new FileInputStream("res/BackGround/monopoly_background.png"));
+        frame.setContentPane(new ImagePanel(image, width, height));
 
-    frame.add(myButton2);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize(400, 400);
-    frame.setLayout(null);
-    frame.setVisible(true);
+        playButton.setBounds(100, 80, 200, 40);
+        playButton.setFocusable(false);
+        playButton.addActionListener(this);
 
-    myButton3.setBounds(100 , 200, 200, 40);
-    myButton3.setFocusable(false);
-    myButton3.addActionListener(this);
+        frame.add(playButton);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(this.width, this.height);
+        frame.setLayout(null);
+        frame.setVisible(true);
+        optionsButton.setBounds(100 , 120, 200, 40);
+        optionsButton.setFocusable(false);
+        optionsButton.addActionListener(this);
 
-    frame.add(myButton3);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize(400, 400);
-    frame.setLayout(null);
-    frame.setVisible(true);
-}
+        frame.add(optionsButton);
+
+        ruleButton.setBounds(100, 160, 200, 40);
+        ruleButton.setFocusable(false);
+        ruleButton.addActionListener(this);
+
+        frame.add(ruleButton);
+
+        quitButton.setBounds(100 , 200, 200, 40);
+        quitButton.setFocusable(false);
+        quitButton.addActionListener(this);
+
+        frame.add(quitButton);
+        //Quit 
+        
+        quitButton.addActionListener(e -> {
+            frame.dispose();
+        });
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==myButton  ){
-            EnterNumberOfPlayers w2 = new EnterNumberOfPlayers();
-            w2.setVisible(true);
-            frame.setVisible(false);
-            dispose();
-        }
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
-    }
+        if(e.getSource()== playButton  ){
 
+            Main.showWindow();
+            frame.setVisible(false);
+            this.dispose();
+           
+        }
+        
+    }
+    
     private void dispose() {
     }
 }

@@ -3,7 +3,10 @@ package Main;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class Main {
     JFrame frame = new JFrame();
@@ -22,7 +25,13 @@ public class Main {
         
         GamePanel gamePanel = new GamePanel();
         gamePanel.setBackground(Color.LIGHT_GRAY);
-    
+
+        // JLabel boardGame;
+        // ImageIcon bg = new ImageIcon("/res/BackGround/background1.png");
+        // boardGame = new JLabel("", bg, JLabel.CENTER);
+        // boardGame.setBounds(0, 0, 832, 832);
+        // window.add(boardGame);
+
         window.add(gamePanel);
 
         window.pack();

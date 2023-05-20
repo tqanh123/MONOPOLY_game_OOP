@@ -10,23 +10,20 @@ import javax.swing.JOptionPane;
 
 public class ConfirmDialog extends JFrame {
 
-    public ConfirmDialog() {
+    // public ConfirmDialog() {
+    //     getContentPane().setLayout(null);
+    //     setTitle("Confirm");
+    //     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    //     setVisible(false);
+    //     setResizable(false);
+    //     setSize(450, 300);
 
-        getContentPane().setBackground(new Color(238, 232, 170));
-        getContentPane().setLayout(null);
-        setTitle("Confirm");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
-        setResizable(false);
-        setSize(450, 300);
+    //     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+    //     setLocation(dim.width / 2 - this.getWidth() / 2, dim.height / 2 - this.getHeight() / 2);
 
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        setLocation(dim.width / 2 - this.getWidth() / 2, dim.height / 2 - this.getHeight() / 2);
+    // }
 
-        
-    }
-
-    public static void showOption(LandButton land) {
+    public static void showOption(Button lands) {
 
         ConfirmDialog cdframe = new ConfirmDialog();
         ImageIcon icon = new ImageIcon("Dice1.gif");

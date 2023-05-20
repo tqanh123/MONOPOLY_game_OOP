@@ -45,13 +45,11 @@ public class Button implements ActionListener{
         
         JButton b = new JButton("hello");
         b.setBounds(landX, landY, landWidth, landHeight);
-        // b.setBackground(Color.BLACK);
-        // b.setForeground(Color.CYAN);
         this.getGp().setLayout(null);
         this.getGp().add(b);
     
         b.addActionListener(this);
-        // b.setOpaque(true);
+        b.setOpaque(false);
     }
 
     @Override
@@ -62,7 +60,7 @@ public class Button implements ActionListener{
         optionPane.setMessageType(JOptionPane.PLAIN_MESSAGE);
     
         JDialog dialog = optionPane.createDialog(null, getLandName());
-        if (gp.gameState == gp.playState) dialog.setVisible(true);
+        if (gp.gameState != gp.rollState) dialog.setVisible(true);
         
     }
 

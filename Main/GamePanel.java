@@ -1,23 +1,21 @@
 package Main;
 
-import javax.swing.JPanel;
 
+import PlayGame.Monopoly;
 import button.Chance;
 import button.ConfirmDialog;
 import button.DiceButton;
 import place.*;
+import player.DrawComponent;
 
+import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 
-public class GamePanel extends JPanel implements Runnable,MouseListener, MouseMotionListener,KeyListener{
+
+public class GamePanel extends JPanel implements Runnable {
 
     public final Color[] color = {Color.RED, Color.BLUE, Color.ORANGE, Color.CYAN};
     public final int originalTileSize = 16;
@@ -28,47 +26,46 @@ public class GamePanel extends JPanel implements Runnable,MouseListener, MouseMo
     public final int Menuheight = 3;
     // SCREEN 
     public final int boardsize = 832;
-    final int screenWidth = 832 + infoPlayer * originalTileSize;
-    final int screenHeight = boardsize;
+    public final int screenWidth = 832 + infoPlayer * originalTileSize;
+    public final int screenHeight = boardsize;
 
     int FPS = 60;
 
     // SYSTEM 
-    // ConfirmDialog confirmDialog = new ConfirmDialog();
+    public UI ui = new UI(this);
+    public final ConfirmDialog confirmDialog = new ConfirmDialog();
+    public final Chance chance = new Chance(this, 0, "Chance", 0, 0, 0, 0, false);
     Sound sound = new Sound();
+    PlayerInfo playerInfo = new PlayerInfo(this);
     placeDraw placed;
-    // Chance chance = new Chance(this, 0, "Chance", 0, 0, 0, 0, false);
-    Places boardPlaces = new Places(this);
+    public final Places boardPlaces = new Places(this);
     Menu menuPlace = new Menu(this);
-    DiceButton diceButton = new DiceButton(this);
+    DrawComponent component = new DrawComponent(this);
+    public final Monopoly monopoly = new Monopoly(this);
+    public final DiceButton diceButton = new DiceButton(this);
+
     Thread gameThread;
 
     // GAME STATE 
+    public final int pauseState = -1;
     public final int initialState = 0;
     public final int playState = 1;
     public final int rollState = 2;
     public int gameState = 0;
 
-    private enum STATE{
-        MENU, GAME
-    };
-    private STATE state = STATE.MENU;
-
     public GamePanel() {
-        addKeyListener(this);
-        addMouseListener(this);
-        addMouseMotionListener(this);
+
         this.setPreferredSize(new Dimension(this.screenWidth, this.screenHeight));
         this.setDoubleBuffered(true);
-       
+        
     }
 
     public void setupGame() {
-        
-        playMusic(0);      
-        // chance.initialChance();
-        // chance.active();
-        // ConfirmDialog.showOption();
+    
+        playMusic(0);
+        monopoly.MonopolyInitial();
+        ui.showMessage(String.format("It's " + monopoly.player[0].getName() + "turn"));
+        chance.initialChance();
 
     }
 
@@ -103,22 +100,15 @@ public class GamePanel extends JPanel implements Runnable,MouseListener, MouseMo
             if (delta >= 1) {
                 update();
                 repaint();
+                // System.out.println("thread");
                 delta--;
                 drawCount++;
             }
             
-            // if (timer >= 1000000000) {
-                
-                //     timer = 0;
-                //     drawCount = 0;
-                //     // System.out.println(drawCount);
-
-                // }
-                
             if (timeRoll >= 1000000000) {
                     
-                System.out.println(diceButton.getTotalDice());
-                gameState = playState;
+                // System.out.println(diceButton.getTotalDice());
+                // gameState = playState;
                 timeRoll = 0;
                 drawCount = 0;
             
@@ -128,6 +118,7 @@ public class GamePanel extends JPanel implements Runnable,MouseListener, MouseMo
     
     public void update() {
         // menuPlace.update();
+        // if (gameState == initialState) monopoly.PlayGame();
         if (gameState == rollState) diceButton.update();
     }
 
@@ -137,75 +128,18 @@ public class GamePanel extends JPanel implements Runnable,MouseListener, MouseMo
 
         Graphics2D g2 = (Graphics2D) g;
 
-        // Debug 
-        long startT=0;
-        startT = System.nanoTime();
-
-
         boardPlaces.draw(g2);
+        playerInfo.draw(g2);
         // if (gameState == rollState) 
         diceButton.Draw(g2);
-        
-        // chance.draw(g2);
-        
-        long endT = System.nanoTime();
-        long time = endT - startT;
-        System.out.println(time);
+        component.Draw(g2);
+        chance.draw(g2);
+
+        ui.draw(g2);
 
         g2.dispose();
 
-    }
-   
-    
-    @Override
-    public void keyTyped(KeyEvent e) {
-        
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-      
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-       
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent e) {
-        
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
-       
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-      
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-     
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-      
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-       
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-      
-    }
+    }    
     
     public void playMusic(int i) {
         sound.setFile(i);

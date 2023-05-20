@@ -2,13 +2,6 @@ package button;
 
 import java.awt.Graphics2D;
 
-// import javax.swing.JButton;
-// import javax.swing.JDialog;
-// import javax.swing.JOptionPane;
-
-// import java.awt.event.*;
-// import java.awt.*;
-
 import Main.GamePanel;
 
 public class LandButton extends ActiveButton {
@@ -59,7 +52,7 @@ public class LandButton extends ActiveButton {
     public void draw(Graphics2D g2) {
         if (isOwn()) {
             String amount = String.valueOf(getTotalrent());
-            int direction = getDirection();
+            // int direction = getDirection();
 
             // switch(direction) {
             //     case 1: 
@@ -68,20 +61,20 @@ public class LandButton extends ActiveButton {
             // }
 
         }
-    }
+    } 
 
-    public void transaction(int playerId) {
-        if (isOwn() == false) {
+    // public void transaction(int playerId) {
+    //     if (isOwn() == false) {
             
-        }
-    }
+    //     }
+    // }
 
-    public int getDirection() {
-        if (getLandX() == 0) return 2;
-        else if (getLandY() == 750) return 1;
-        else if (getLandY() == 0) return 3;
-        else return 4;
-    }
+    // public int getDirection() {
+    //     if (getLandX() == 0) return 2;
+    //     else if (getLandY() == 750) return 1;
+    //     else if (getLandY() == 0) return 3;
+    //     else return 4;
+    // }
 
     public int getNumHouse() {
         return numHouse;

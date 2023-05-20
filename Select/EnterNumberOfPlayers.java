@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class EnterNumberOfPlayers extends javax.swing.JFrame {
 
+    private static int num;
     /**
      * Creates new form EnterNumberOfPlayers
      */
@@ -98,7 +99,7 @@ public class EnterNumberOfPlayers extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String number = numberOfPlayers.getText();
-        int num = Integer.parseInt(number);
+        num = Integer.parseInt(number);
                 
         if(num == 4){
             FourPlayers four = new FourPlayers();
@@ -119,6 +120,10 @@ public class EnterNumberOfPlayers extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    public static int getNum(){
+        return num;
+    }
 
     /**
      * @param args the command line arguments
@@ -158,7 +163,7 @@ public class EnterNumberOfPlayers extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField numberOfPlayers;
+    public static javax.swing.JTextField numberOfPlayers;
     private java.awt.TextArea textArea1;
     // End of variables declaration//GEN-END:variables
     public void showWindow() {

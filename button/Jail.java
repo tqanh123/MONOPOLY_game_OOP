@@ -4,19 +4,24 @@ import Main.GamePanel;
 
 public class Jail extends Button {
     public final int visitedAmount = 25;
-    private int numPlayer;
+    private static int numPlayer = 0;
     public String landName;
     public int landX, landY;
     public int landWidth, landHeight;
-    private boolean isJial; 
+    private static boolean isJial; 
 
     public boolean isJial() {
         return isJial;
     }
 
-    public void setJial(boolean isJial) {
-        this.isJial = isJial;
+    public static int amount() {
+        return numPlayer * 25;
+    }
+
+    public static void setJial(boolean is) {
+        isJial = is;
         if (isJial == true) numPlayer++;
+        else numPlayer--;
     }
 
     public Jail(GamePanel gp, int id, String landName, int landX, int landY, int landWidth, int landHeight, int numPlayer){

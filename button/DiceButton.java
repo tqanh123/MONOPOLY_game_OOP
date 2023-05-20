@@ -21,6 +21,8 @@ public class DiceButton {
     int numDice2 = 0;
     public JButton rollButton;
     int rollCount;
+    private boolean isRoll;
+    private int playerid;
     
     public DiceButton (GamePanel gp) {
 
@@ -29,7 +31,7 @@ public class DiceButton {
         dices = new Dice[6];
 
         getDiceImage();
-        // getRollButton();
+        getRollButton();
     }
 
     public void getDiceImage(){  
@@ -74,33 +76,23 @@ public class DiceButton {
         }
     }
 
-    public void getRollButton() {
-        int x = gp.boardsize * 3 / 4;
-        int y = gp.boardsize * 3 / 4;
-
-        JButton rollButton = new JButton("Roll!");
-        rollButton.setBounds(x, y, 100, 50);
-        
-        gp.setLayout(null);
-        gp.add(rollButton);
-        
-        rollButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                rollButton.setEnabled(false);
-                gp.gameState = gp.rollState;
-               
-            }
-        });
+    public void Active(){
+        // playerid = id;
+        // System.out.println("Active" + isRoll);
+        gp.gameState = gp.rollState;
     }
-    
-    public void Draw(Graphics2D g2) {
+
+    public boolean isDouble(){
+        if (getNumDice1() == getNumDice2()) return true;
+        return false;
+    }
+
+    public void getRollButton(){
         int x = gp.boardsize / 2 - 100;
         int y = gp.boardsize / 2 - 100;
         
         gp.setLayout(null);
-        JButton rollButton = new JButton();
+        rollButton = new JButton();
         gp.add(rollButton);
 
         rollButton.setBounds(x, y, 200, 100);
@@ -109,19 +101,53 @@ public class DiceButton {
         rollButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // rollButton.setEnabled(false);
+                
+                
+            if (gp.gameState == gp.initialState) {
+                
                 gp.gameState = gp.rollState;
-                if (gp.gameState == gp.rollState) {
+                gp.playSE(1);
+                rollButton.setEnabled(false);
 
-                    rollCount = 0;
-                    gp.playSE(1);
-                }
-               
+                // roll for 2 seconds
+                long startTime = System.currentTimeMillis();
+                Thread rollThread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        long endTime = System.currentTimeMillis();
+                        try{
+                            while((endTime - startTime)/1000F < 1){
+                                // roll dice
+                                gp.update();
+                                gp.repaint();
+                                
+                                // sleep thread
+                                Thread.sleep(60);
+
+                                endTime = System.currentTimeMillis();
+
+                            }
+
+                            gp.gameState = gp.playState;
+                            rollButton.setEnabled(true);
+                            gp.monopoly.PlayGame();
+
+                        }catch(InterruptedException e){
+                            System.out.println("Threading Error: " + e);
+                        }
+                    }
+                });
+                rollThread.start();
             }
-        });
+        }
         
-        rollCount++;
-        if (rollCount > 60) gp.gameState = gp.playState;
+        });
+    }
+    
+    public void Draw(Graphics2D g2) {
+        int x = gp.boardsize / 2 - 100;
+        int y = gp.boardsize / 2 - 100;
+        
         g2.drawImage(dices[numDice1].image, x, y, 100, 100, null);
         
         g2.drawImage(dices[numDice2].image, x + 100, y , 100, 100, null);
@@ -129,6 +155,8 @@ public class DiceButton {
     }
     
     public void update() {
+        // isRoll = true;
+        // System.out.println("upadte");
         Random rand = new Random();
 
         numDice1 = rand.nextInt(0, 6);
@@ -141,6 +169,14 @@ public class DiceButton {
 
     public int getNumDice2() {
         return numDice2;
+    }
+
+    public boolean getIsRoll() {
+        return isRoll;
+    }
+
+    public void setIsRoll(boolean isRoll) {
+        this.isRoll = isRoll;
     }
 
     public int getTotalDice() {
