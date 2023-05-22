@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 
 import Main.GamePanel;
 import Select.EnterNumberOfPlayers;
+import player.Player;
 
 public class PlayerInfo extends Bufferimg{
 
@@ -47,7 +48,7 @@ public class PlayerInfo extends Bufferimg{
             e.printStackTrace();
         }
     }
-    
+
     public void getBackGroundImage() {
         try {
             playerInfo[0] = new Bufferimg();
@@ -58,12 +59,14 @@ public class PlayerInfo extends Bufferimg{
         }
     }
 
+Player money = new Player(gp, null, 0, 0, 0, 0);
+
     public void draw1(Graphics2D p1){
         p1.setFont(font);
         p1.setColor(Color.GREEN);
         p1.fillRect(gp.boardsize, gp.Menuheight*16, gp.infoPlayer*16,(832- gp.Menuheight*16)/4);
-        p1.setColor(Color.BLACK);
-        p1.drawString("Player 1",gp.boardsize , gp.Menuheight*16+30);
+        p1.setColor(Color.MAGENTA);
+        p1.drawString("Player 1: " + money.getMoney(),gp.boardsize , gp.Menuheight*16+30);
         p1.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+40, 65, 65, null);
     }
     
@@ -71,8 +74,8 @@ public class PlayerInfo extends Bufferimg{
         p2.setFont(font);
         p2.setColor(Color.BLUE);
         p2.fillRect(gp.boardsize,gp.Menuheight*16+ (832- gp.Menuheight*16)/4, gp.infoPlayer*16,(832- gp.Menuheight*16)/4);
-        p2.setColor(Color.BLACK);
-        p2.drawString("Player 2",gp.boardsize ,(gp.Menuheight*16+ ((832- gp.Menuheight*16)/4))+30);
+        p2.setColor(Color.CYAN);
+        p2.drawString("Player 2: "+ money.getMoney(),gp.boardsize ,(gp.Menuheight*16+ ((832- gp.Menuheight*16)/4))+30);
         p2.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+235, 65, 65, null);
     }
     
@@ -80,8 +83,8 @@ public class PlayerInfo extends Bufferimg{
         p3.setFont(font);
         p3.setColor(Color.YELLOW);
         p3.fillRect(gp.boardsize,gp.Menuheight*16+ ((832- gp.Menuheight*16)/4)*2, gp.infoPlayer*16,(832- gp.Menuheight*16)/4);
-        p3.setColor(Color.BLACK);
-        p3.drawString("Player 3",gp.boardsize ,(gp.Menuheight*16 + ((832- gp.Menuheight*16)/4)*2)+30);
+        p3.setColor(Color.MAGENTA);
+        p3.drawString("Player 3: "+ money.getMoney(),gp.boardsize ,(gp.Menuheight*16 + ((832- gp.Menuheight*16)/4)*2)+30);
         p3.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+430, 65, 65, null);
     }
 
@@ -89,8 +92,8 @@ public class PlayerInfo extends Bufferimg{
         p4.setFont(font);
         p4.setColor(Color.RED);
         p4.fillRect(gp.boardsize,gp.Menuheight*16+ ((832- gp.Menuheight*16)/4)*3, gp.infoPlayer*16,(832- gp.Menuheight*16)/4);
-        p4.setColor(Color.BLACK);
-        p4.drawString("Player 4",gp.boardsize ,(gp.Menuheight*16 + ((832- gp.Menuheight*16)/4)*3)+30);
+        p4.setColor(Color.CYAN);
+        p4.drawString("Player 4: " + money.getMoney(),gp.boardsize ,(gp.Menuheight*16 + ((832- gp.Menuheight*16)/4)*3)+30);
         p4.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+630, 65, 65, null);
     }
 
@@ -101,6 +104,6 @@ public class PlayerInfo extends Bufferimg{
         draw2(g2);
         draw3(g2);
         draw4(g2);
-    
+          
     }
 }
