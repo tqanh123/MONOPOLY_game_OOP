@@ -84,7 +84,7 @@ public class LaunchPage implements ActionListener{
         if(e.getSource()== playButton  ){
             EnterNumberOfPlayers enterNumberOfPlayers = new EnterNumberOfPlayers();
             enterNumberOfPlayers.setVisible(true);
-            
+            frame.setVisible(false);
            
         }
         
