@@ -62,10 +62,10 @@ public class Monopoly {
 
         player = new Player[numPlayer];
 
-        player[0] = new Player(gp, "QAnh", 0, 0, 710, 710);
-        player[1] = new Player(gp, "Dat", 1, 0, 742, 742);
-        player[2] = new Player(gp, "Khanh", 2, 0, 710, 742);
-        player[3] = new Player(gp, "Khiem", 3, 0, 742, 710);
+        player[0] = new Player(gp, "QAnh", 0, 0, 740, 740);
+        player[1] = new Player(gp, "Dat", 1, 0, 775, 742);
+        player[2] = new Player(gp, "Khanh", 2, 0, 740, 775);
+        player[3] = new Player(gp, "Khiem", 3, 0, 775, 775);
 
     }
 
@@ -120,7 +120,7 @@ public class Monopoly {
                 gp.confirmDialog.showOption(gp.boardPlaces.button[LandId]);
                 break;
 
-            case 0: 
+            case 0, 18: 
 
                 break;
             
@@ -128,8 +128,9 @@ public class Monopoly {
                 visitedJail();
                 break;
             
-            case 18:
-                
+            case 3:
+                int Amount = player[playerId].getWorth();
+                player[playerId].addMoney(Amount * 8 / 10);
                 break;
 
             case 27: 
@@ -151,7 +152,7 @@ public class Monopoly {
         if (player[playerId].isContinueRoll() == false) {
             count = 0;
             playerId++;
-            if (playerId == 2) playerId = 0;
+            if (playerId == numPlayer) playerId = 0;
         }
         player[playerId].setContinueRoll(false);
         gp.gameState = gp.initialState;

@@ -101,6 +101,6 @@ public class PlayerInfo extends Bufferimg{
         draw2(g2);
         draw3(g2);
         draw4(g2);
-        
+    
     }
 }

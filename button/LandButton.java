@@ -7,7 +7,7 @@ import Main.GamePanel;
 public class LandButton extends ActiveButton {
     private int numHouse, numHotels;
     private int rentAmount[] = new int[6];
-    private boolean isOwn = false;
+    private boolean isOwn;
     private int host = 0;
     public int getHost() {
         return host;
@@ -27,8 +27,8 @@ public class LandButton extends ActiveButton {
 
     public int mono = 1;
 
-    public LandButton(GamePanel gp, int id, String landName, int numHouse, int numHotels, int rentAmount[], int purchaseAmount, int saleAmount, int landX, int landY, int landWidth, int landHeight) {
-        super(gp, id, landName, purchaseAmount, saleAmount, landX, landY, landWidth, landHeight);
+    public LandButton(GamePanel gp, int id, String landName, int numHouse, int numHotels, int rentAmount[], int purchaseAmount, int saleAmount, int landX, int landY, int landWidth, int landHeight, boolean isOwn) {
+        super(gp, id, landName, purchaseAmount, saleAmount, landX, landY, landWidth, landHeight, isOwn);
         this.numHotels = numHotels;
         this.numHouse = numHouse;
         this.rentAmount = rentAmount;

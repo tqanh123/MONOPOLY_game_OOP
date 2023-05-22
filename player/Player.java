@@ -9,11 +9,13 @@ import java.util.List;
 import java.awt.Graphics2D;
 
 import Main.GamePanel;
+import button.ActiveButton;
 import button.Jail;
 import button.LandButton;
+import button.StationButton;
 
 public class Player {
-    private ArrayList<LandButton> properties = new ArrayList<LandButton>();
+    private ArrayList<ActiveButton> properties = new ArrayList<ActiveButton>();
     private final String name;
     private int position;
     private int money = 500;
@@ -43,23 +45,43 @@ public class Player {
         this.id = id;
     }
 
-    // public void getImage(int getId()){
+    public void buy(ActiveButton property){
+        addMoney(-property.getPurchaseAmount());
+        properties.add(property);
+        // sortPropertiesByGroup(properties);
+    }
 
-    // }
+    public void sell(ActiveButton property){
+        addMoney(property.getSaleAmount());
+        property.setOwn(false);
+    }
+
+    public int getWorth(){
+        int total = 0;
+
+        for(ActiveButton p : properties){
+            if(p instanceof LandButton){
+                total += (((LandButton) p).getTotalrent()) / 2;
+            }
+
+            total += ((StationButton) p).getTotalrent() / 2;
+        }
+
+        return total + money;
+    }
+
     public void addMoney(int addMoney){
-        // if(money < -addMoney){
-        //     broke(-addMoney - money);
-        // }
+        if(money < -addMoney){
+            broke(-addMoney - money);
+        }
 
         this.money += addMoney;
     }
 
-    // private void broke(int amountNeeded){
-    //     System.out.println("You are missing $" + amountNeeded);
-    //     List<PlayerOption> options = Arrays.asList(
-    //             new MortgageOption(this)
-    //     );
-    // }
+    private void broke(int amountNeeded){
+        System.out.println("You are missing $" + amountNeeded);
+        
+    }
 
     public void pay(int amount){
         addMoney(-amount);
@@ -67,8 +89,8 @@ public class Player {
 
     public int Repairs() {
         int repairsAmount = 0;
-        for (LandButton land: properties) 
-            repairsAmount += land.getNumHouse() * 25 + land.getNumHotels() * 100;
+        for (ActiveButton land: properties) 
+            repairsAmount += ((LandButton)land).getNumHouse() * 25 + ((LandButton)land).getNumHotels() * 100;
 
         return repairsAmount;
     }
@@ -84,7 +106,7 @@ public class Player {
         //if pass GO
         if(position >= 36 ){
             if (inJail == false) {
-                System.out.println(name + " passed GO and collected $200");
+                gp.ui.showMessage(String.format(name + " passed GO and collected $200m"));
                 money += 200;
             }
 
@@ -100,9 +122,38 @@ public class Player {
         
         setPlayerX(gp.boardPlaces.button[getPosition()].getLandX() + dx[directionID] + px[getId()]);
         setPlayerY(gp.boardPlaces.button[getPosition()].getLandY() + dy[directionID] + py[getId()]);
+
     }
 
-    public ArrayList<LandButton> getProperties() {
+    // private void sortPropertiesByGroup(ArrayList<ActiveButton> properties){
+    //     ArrayList<StationButton> railroads = new ArrayList<>();
+    //     ArrayList<ActiveButton> sorted = new ArrayList<>();
+
+    //     for(ActiveButton property : properties){
+    //         if(property instanceof StationButton){
+    //             railroads.add((StationButton) property);
+    //         } else {
+    //             sorted.add( property);
+    //         }
+    //     }
+    //     Collections.sort(railroads);
+    //     Collections.sort(sorted);
+
+    //     sorted.addAll(railroads);
+
+    //     this.properties = sorted;
+    // }
+
+    public void listProperties(){
+        if(properties.isEmpty()){
+            System.out.println("You do not own any properties");
+        }
+        for(ActiveButton property : properties){
+            System.out.println(property);
+        }
+    }
+
+    public ArrayList<ActiveButton> getProperties() {
         return properties;
     }
 
