@@ -306,6 +306,22 @@ public class FourPlayers extends javax.swing.JFrame {
         });
     }
 
+    public String getPlayer1(){
+        return (String) player1.getSelectedItem();
+    }
+
+    public String getPlayer2(){
+        return (String) player2.getSelectedItem();
+    }
+
+    public String getPlayer3(){
+        return (String) player3.getSelectedItem();
+    }
+
+    public String getPlayer4(){
+        return (String) player4.getSelectedItem();
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -316,9 +332,9 @@ public class FourPlayers extends javax.swing.JFrame {
     private javax.swing.JLabel pic3;
     private javax.swing.JLabel pic4;
     private javax.swing.JButton play;
-    private javax.swing.JComboBox<String> player1;
-    private javax.swing.JComboBox<String> player2;
-    private javax.swing.JComboBox<String> player3;
-    private javax.swing.JComboBox<String> player4;
+    private static javax.swing.JComboBox<String> player1;
+    private static javax.swing.JComboBox<String> player2;
+    private static javax.swing.JComboBox<String> player3;
+    private static javax.swing.JComboBox<String> player4;
     // End of variables declaration//GEN-END:variables
 }

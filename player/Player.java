@@ -163,7 +163,7 @@ public class Player {
 
     public int getMoney() { return money; }
 
-    public int getId() { return id; }
+    public int getIyd() { return id; }
 
     public boolean isInJail() {
         return inJail;

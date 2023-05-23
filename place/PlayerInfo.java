@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 
 import Main.GamePanel;
 import Select.EnterNumberOfPlayers;
+import Select.FourPlayers;
 import player.Player;
 
 public class PlayerInfo extends Bufferimg{
@@ -59,36 +60,80 @@ public class PlayerInfo extends Bufferimg{
         }
     }
 
-Player money = new Player(gp, null, 0, 0, 0, 0);
+    Player money = new Player(gp, null, 0, 0, 0, 0);
+    FourPlayers check = new FourPlayers();
+
 
     public void draw1(Graphics2D p1){
         p1.setFont(font);
         p1.setColor(Color.GREEN);
+        
+        
+        
+        
         p1.fillRect(gp.boardsize, gp.Menuheight*16, gp.infoPlayer*16,(832- gp.Menuheight*16)/4);
         p1.setColor(Color.MAGENTA);
         p1.drawString("Player 1: " + money.getMoney(),gp.boardsize , gp.Menuheight*16+30);
-        p1.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+40, 65, 65, null);
-
+        //Check player 1
+        if(check.getPlayer1() == "Character 1"){
+            p1.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+40, 65, 65, null);
+        } else if(check.getPlayer1() == "Character 2"){
+            p1.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+40, 65, 65, null);
+        } else if(check.getPlayer1() == "Character 3"){
+            p1.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+40, 65, 65, null);
+        } else if(check.getPlayer1() == "Character 4") {
+            p1.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+40, 65, 65, null);
+        }
+       
         p1.setFont(font);
         p1.setColor(Color.BLUE);
         p1.fillRect(gp.boardsize,gp.Menuheight*16+ (832- gp.Menuheight*16)/4, gp.infoPlayer*16,(832- gp.Menuheight*16)/4);
         p1.setColor(Color.CYAN);
         p1.drawString("Player 2: "+ money.getMoney(),gp.boardsize ,(gp.Menuheight*16+ ((832- gp.Menuheight*16)/4))+30);
-        p1.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+235, 65, 65, null);
+        //Check player 2
+        if(check.getPlayer2() == "Character 1"){
+            p1.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+235, 65, 65, null);
+        } else if(check.getPlayer2() == "Character 2"){
+            p1.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+235, 65, 65, null);           
+        } else if (check.getPlayer2() == "Character 3"){
+            p1.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+235, 65, 65, null);
+        } else if (check.getPlayer2() == "Character 4"){
+            p1.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+235, 65, 65, null);
+        }
+        
 
         p1.setFont(font);
         p1.setColor(Color.YELLOW);
         p1.fillRect(gp.boardsize,gp.Menuheight*16+ ((832- gp.Menuheight*16)/4)*2, gp.infoPlayer*16,(832- gp.Menuheight*16)/4);
         p1.setColor(Color.MAGENTA);
         p1.drawString("Player 3: "+ money.getMoney(),gp.boardsize ,(gp.Menuheight*16 + ((832- gp.Menuheight*16)/4)*2)+30);
-        p1.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+430, 65, 65, null);
+        //Check player 3
+        if(check.getPlayer3() == "Character 1"){
+            p1.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+430, 65, 65, null);
+        } else if(check.getPlayer3() == "Character 2"){
+            p1.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+430, 65, 65, null);
+        } else if(check.getPlayer3() == "Character 3"){
+            p1.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+430, 65, 65, null);
+        } else if (check.getPlayer3() == "Character 4"){
+            p1.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+430, 65, 65, null);
+        }
+        
 
         p1.setFont(font);
         p1.setColor(Color.RED);
         p1.fillRect(gp.boardsize,gp.Menuheight*16+ ((832- gp.Menuheight*16)/4)*3, gp.infoPlayer*16,(832- gp.Menuheight*16)/4);
         p1.setColor(Color.CYAN);
         p1.drawString("Player 4: " + money.getMoney(),gp.boardsize ,(gp.Menuheight*16 + ((832- gp.Menuheight*16)/4)*3)+30);
-        p1.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+630, 65, 65, null);
+        //
+        if(check.getPlayer4() == "Character 1"){
+            p1.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+630, 65, 65, null);
+        } else if(check.getPlayer4() == "Character 2"){
+            p1.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+630, 65, 65, null);
+        } else if(check.getPlayer4() == "Character 3"){
+            p1.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+630, 65, 65, null);
+        } else if(check.getPlayer4() == "Character 4"){
+            p1.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+630, 65, 65, null);
+        }
     }
     
     public void draw2(Graphics2D p2){
