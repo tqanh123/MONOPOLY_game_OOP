@@ -47,6 +47,7 @@ public class Player {
 
     public void buy(ActiveButton property){
         addMoney(-property.getPurchaseAmount());
+        property.setOwn(true);
         properties.add(property);
         // sortPropertiesByGroup(properties);
     }

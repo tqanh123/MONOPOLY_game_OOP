@@ -25,6 +25,7 @@ public class UI {
         message = text;
         messageOn = true;
         messageCount = 0;
+        // gp.gameState = gp.pauseState;
 
     }
 
@@ -42,8 +43,10 @@ public class UI {
             g2.drawString(message, getXforCenteredText(message), gp.boardsize/2);
 
             messageCount++;
-            if (messageCount > 90) messageOn = false;
-        
+            if (messageCount > 90) {
+                messageOn = false;
+                // gp.gameState = gp.playState;
+            } 
         }
 
     }

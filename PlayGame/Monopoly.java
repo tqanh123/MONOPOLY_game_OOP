@@ -1,12 +1,7 @@
 package PlayGame;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.nio.Buffer;
-
-import javax.imageio.ImageIO;
-
 import Main.GamePanel;
+import Select.EnterNumberOfPlayers;
 import button.DiceButton;
 import button.Jail;
 import place.Bufferimg;
@@ -22,7 +17,8 @@ public class Monopoly {
     private int count = 0;
     private int[] stationId ={4, 14, 23, 32, 40};
     private int LandId;
-    private int numPlayer = 4;
+    private int numPlayer = EnterNumberOfPlayers.getNum();
+    private int[] dx = {0, 35, 0, 35}, dy = {0, 0, 35, 35};
         
 
     public int getPlayerId() {
@@ -40,7 +36,7 @@ public class Monopoly {
 
     public void MonopolyInitial(){
         dice = new DiceButton(gp);
-        player = new Player[numPlayer];
+        player = new Player[4];
 
         player[0] = new Player(gp, "QAnh", 0, 0, 740, 740);
         player[1] = new Player(gp, "Dat", 1, 0, 775, 742);
@@ -49,18 +45,21 @@ public class Monopoly {
 
     }
 
+    public void setup(int ID){
+        player[0] = new Player(gp, "QAnh", 0, 0, 740, 740);
+    } 
+
     public void check() {
         gp.ui.showMessage(String.format("It's " + player[playerId].getName() + "turn"));
 
         if (player[playerId].isInJail()) {
-            gp.ui.showMessage( String.format("Take %d turns to escape the Jail", player[playerId].getTurnInJail() ));
+            gp.ui.showMessage( String.format("Take %d turns\nto escape the Jail", player[playerId].getTurnInJail() ));
         }        
     }
 
     //AFTER ROLL 
     public void PlayGame(){
         count++;
-        player[playerId].move(gp.diceButton.getTotalDice());
         
         if (gp.diceButton.isDouble()){
             if (player[playerId].isInJail() == true) player[playerId].escape();
@@ -70,19 +69,20 @@ public class Monopoly {
                 player[playerId].setContinueRoll(false);
                 endTurn();
                 return;
-
+                
             }
             
             player[playerId].setContinueRoll(true);
         }
-
+        
         if (player[playerId].isInJail() == true) {
             player[playerId].setTurnsInJail();
             endTurn();
             return;
         }
         
-        player[playerId].move(9);
+        // player[playerId].move(gp.diceButton.getTotalDice());
+        player[playerId].move(3);
         //Next stages
         Dealing();       
     }
@@ -110,8 +110,10 @@ public class Monopoly {
             
             case 3:
                 int Amount = player[playerId].getWorth();
+                System.out.println(Amount);
                 gp.ui.showMessage("Income Tax");
-                player[playerId].pay(Amount * 8 / 10);
+                Amount = Amount * 2 / 10;
+                player[playerId].pay(Amount);
                 break;
 
             case 34:
@@ -120,14 +122,13 @@ public class Monopoly {
                 break;
 
             case 27: 
-                gotoJail(LandId);
                 player[playerId].setContinueRoll(false);
+                gotoJail(LandId);
                 break;
             
             default :
                 gp.confirmDialog.showOption(gp.boardPlaces.button[LandId]);
                 break;
-
         }
         
         endTurn();
@@ -199,6 +200,7 @@ public class Monopoly {
 
             case 8:
             System.out.print("case 8");
+                player[playerId].setContinueRoll(false);
                 gotoJail(location);
                 break;
             
@@ -219,6 +221,11 @@ public class Monopoly {
     }
 
     private void visitedJail() {
-        player[playerId].pay(Jail.amount());       
+        if (((Jail)gp.boardPlaces.button[9]).isJial() == true) {
+            
+            gp.ui.showMessage(String.format("you must pay $%d\nto visiting %d player", Jail.amount(), Jail.getnumPlayer()));
+            player[playerId].pay(Jail.amount());    
+
+        }
     }
 }

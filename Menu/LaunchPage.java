@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 
 import Main.Main;
 import Main.GamePanel;
+import Select.EnterNumberOfPlayers;
 public class LaunchPage implements ActionListener{
     private JLabel myLabel;
     private JFrame frame;
@@ -81,10 +82,9 @@ public class LaunchPage implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()== playButton  ){
-
-            Main.showWindow();
+            EnterNumberOfPlayers enterNumberOfPlayers = new EnterNumberOfPlayers();
+            enterNumberOfPlayers.setVisible(true);
             frame.setVisible(false);
-            this.dispose();
            
         }
         

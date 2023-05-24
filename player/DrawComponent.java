@@ -7,11 +7,13 @@ import javax.imageio.ImageIO;
 
 import Main.GamePanel;
 import Main.UtilityTool;
+import Select.EnterNumberOfPlayers;
 import place.Bufferimg;
 
 public class DrawComponent {
 
     public Bufferimg[] playerImage;
+    private int n = EnterNumberOfPlayers.getNum();
     GamePanel gp;
 
     public DrawComponent(GamePanel gp){
@@ -66,7 +68,7 @@ public class DrawComponent {
 
     public void Draw(Graphics2D g2) {
 
-        for(int i = 0; i < 4; i++){
+        for(int i = 0; i < n; i++){
 
             int x = gp.monopoly.player[i].getPlayerX();
             int y = gp.monopoly.player[i].getPlayerY();
