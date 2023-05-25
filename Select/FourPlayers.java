@@ -186,20 +186,24 @@ public class FourPlayers extends javax.swing.JFrame {
 
     private void player1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_player1ActionPerformed
         // TODO add your handling code here:
-        if(player1.getSelectedItem() == "Select Character"){
+        if(player1.getSelectedItem().equals("Select Character")){
             pic1.setIcon(null);
-        } else if (player1.getSelectedItem() == "Character 1"){
+        } else if (player1.getSelectedItem().equals("Character 1")){
             ImageIcon picture = new ImageIcon("res/Picture/c1.png");
             pic1.setIcon(picture);
-        } else if (player1.getSelectedItem() == "Character 2"){
+            id = 1;
+        } else if (player1.getSelectedItem().equals("Character 2")){
             ImageIcon picture = new ImageIcon("res/Picture/c2.png");
             pic1.setIcon(picture);
-        } else if (player1.getSelectedItem() == "Character 3"){
+            id = 2;
+        } else if (player1.getSelectedItem().equals("Character 3")){
             ImageIcon picture = new ImageIcon("res/Picture/c3.png");
             pic1.setIcon(picture);
-        }else if (player1.getSelectedItem() == "Character 4"){
+            id = 3;
+        }else if (player1.getSelectedItem().equals("Character 4")){
             ImageIcon picture = new ImageIcon("res/Picture/c4.png");
             pic1.setIcon(picture);
+            id = 4;
         }
     }//GEN-LAST:event_player1ActionPerformed
 
@@ -207,18 +211,22 @@ public class FourPlayers extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(player2.getSelectedItem() == "Select Character"){
             pic2.setIcon(null);
+            id = 1;
         } else if (player2.getSelectedItem() == "Character 1"){
             ImageIcon picture = new ImageIcon("res/Picture/c1.png");
             pic2.setIcon(picture);
+            id = 2;
         } else if (player2.getSelectedItem() == "Character 2"){
             ImageIcon picture = new ImageIcon("res/Picture/c2.png");
             pic2.setIcon(picture);
         } else if (player2.getSelectedItem() == "Character 3"){
             ImageIcon picture = new ImageIcon("res/Picture/c3.png");
             pic2.setIcon(picture);
+            id = 3;
         }else if (player2.getSelectedItem() == "Character 4"){
             ImageIcon picture = new ImageIcon("res/Picture/c4.png");
             pic2.setIcon(picture);
+            id = 4;
         }
     }//GEN-LAST:event_player2ActionPerformed
 
@@ -240,15 +248,19 @@ public class FourPlayers extends javax.swing.JFrame {
         } else if (player3.getSelectedItem() == "Character 1"){
             ImageIcon picture = new ImageIcon("res/Picture/c1.png");
             pic3.setIcon(picture);
+            id = 1;
         } else if (player3.getSelectedItem() == "Character 2"){
             ImageIcon picture = new ImageIcon("res/Picture/c2.png");
             pic3.setIcon(picture);
+            id = 2;
         } else if (player3.getSelectedItem() == "Character 3"){
             ImageIcon picture = new ImageIcon("res/Picture/c3.png");
             pic3.setIcon(picture);
+            id = 3;
         }else if (player3.getSelectedItem() == "Character 4"){
             ImageIcon picture = new ImageIcon("res/Picture/c4.png");
             pic3.setIcon(picture);
+            id = 4;
         }
     }//GEN-LAST:event_player3ActionPerformed
 
@@ -259,15 +271,19 @@ public class FourPlayers extends javax.swing.JFrame {
         } else if (player4.getSelectedItem() == "Character 1"){
             ImageIcon picture = new ImageIcon("res/Picture/c1.png");
             pic4.setIcon(picture);
+            id = 1;
         } else if (player4.getSelectedItem() == "Character 2"){
             ImageIcon picture = new ImageIcon("res/Picture/c2.png");
             pic4.setIcon(picture);
+            id = 2;
         } else if (player4.getSelectedItem() == "Character 3"){
             ImageIcon picture = new ImageIcon("res/Picture/c3.png");
             pic4.setIcon(picture);
+            id = 3;
         }else if (player4.getSelectedItem() == "Character 4"){
             ImageIcon picture = new ImageIcon("res/Picture/c4.png");
             pic4.setIcon(picture);
+            id = 4;
         }
     }//GEN-LAST:event_player4ActionPerformed
 
@@ -306,20 +322,8 @@ public class FourPlayers extends javax.swing.JFrame {
         });
     }
 
-    public String getPlayer1(){
-        return (String) player1.getSelectedItem();
-    }
-
-    public String getPlayer2(){
-        return (String) player2.getSelectedItem();
-    }
-
-    public String getPlayer3(){
-        return (String) player3.getSelectedItem();
-    }
-
-    public String getPlayer4(){
-        return (String) player4.getSelectedItem();
+    public int getID(){
+        return id;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -332,9 +336,12 @@ public class FourPlayers extends javax.swing.JFrame {
     private javax.swing.JLabel pic3;
     private javax.swing.JLabel pic4;
     private javax.swing.JButton play;
-    private static javax.swing.JComboBox<String> player1;
-    private static javax.swing.JComboBox<String> player2;
-    private static javax.swing.JComboBox<String> player3;
-    private static javax.swing.JComboBox<String> player4;
+    private javax.swing.JComboBox<String> player1;
+    private javax.swing.JComboBox<String> player2;
+    private javax.swing.JComboBox<String> player3;
+    private javax.swing.JComboBox<String> player4;
+
+    private static int id = 0; 
+
     // End of variables declaration//GEN-END:variables
 }
