@@ -11,6 +11,6 @@ public class Demo {
 
     public static void main(String[] args) {
         EnterNumberOfPlayers enter = new EnterNumberOfPlayers();
-        enter.setVisible(true);
+        enter.show();
     }
 }
