@@ -49,33 +49,6 @@ public class LandButton extends ActiveButton {
 
     }
 
-    public void draw(Graphics2D g2) {
-        if (isOwn()) {
-            String amount = String.valueOf(getTotalrent());
-            // int direction = getDirection();
-
-            // switch(direction) {
-            //     case 1: 
-            //         int x = 
-            //     break;
-            // }
-
-        }
-    } 
-
-    // public void transaction(int playerId) {
-    //     if (isOwn() == false) {
-            
-    //     }
-    // }
-
-    // public int getDirection() {
-    //     if (getLandX() == 0) return 2;
-    //     else if (getLandY() == 750) return 1;
-    //     else if (getLandY() == 0) return 3;
-    //     else return 4;
-    // }
-
     public int getNumHouse() {
         return numHouse;
     }

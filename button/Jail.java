@@ -18,6 +18,10 @@ public class Jail extends Button {
         return numPlayer * 25;
     }
 
+    public static int getnumPlayer() {
+        return numPlayer;
+    }
+
     public static void setJial(boolean is) {
         isJial = is;
         if (isJial == true) numPlayer++;
@@ -31,6 +35,6 @@ public class Jail extends Button {
 
     @Override
     public String toString() {
-        return "it's free to you if nobody here, and it's need to pay 25K for each people";
+        return "it's free to you if nobody here\nand it's need to pay 25K for each people";
     }
 }

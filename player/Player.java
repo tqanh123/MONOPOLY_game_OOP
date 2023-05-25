@@ -47,6 +47,7 @@ public class Player {
 
     public void buy(ActiveButton property){
         addMoney(-property.getPurchaseAmount());
+        property.setOwn(true);
         properties.add(property);
         // sortPropertiesByGroup(properties);
     }
@@ -79,8 +80,7 @@ public class Player {
     }
 
     private void broke(int amountNeeded){
-        System.out.println("You are missing $" + amountNeeded);
-        
+        gp.ui.showMessage(String.format("You are missing $" + amountNeeded));
     }
 
     public void pay(int amount){
@@ -190,7 +190,6 @@ public class Player {
             inJail = false;
         }
     }
-
 
     public int getOutOfJailCards() {
         return outOfJailCards;
