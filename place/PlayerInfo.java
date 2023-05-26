@@ -81,13 +81,13 @@ public class PlayerInfo extends Bufferimg{
 
         //Check player 1
         if(check4Players.getID1() == 1){
-            p1.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+60, 65, 65, null);
+            p1.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+60, 80, 80, null);
         } else if(check4Players.getID1() == 2){
-            p1.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+60, 65, 65, null);
+            p1.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+60, 80, 80, null);
         } else if(check4Players.getID1() == 3){
-            p1.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+60, 65, 65, null);
+            p1.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+60, 80, 80, null);
         } else if(check4Players.getID1() == 4) {
-            p1.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+60, 65, 65, null);
+            p1.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+60, 80, 80, null);
         }
 
         //Draw Area p2
@@ -103,13 +103,13 @@ public class PlayerInfo extends Bufferimg{
 
         //Check player 2
         if(check4Players.getID2() == 1){
-            p1.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+255, 65, 65, null);
+            p1.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+255, 80, 80, null);
         } else if(check4Players.getID2() == 2){
-            p1.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+255, 65, 65, null);           
+            p1.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+255, 80, 80, null);           
         } else if (check4Players.getID2() == 3){
-            p1.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+255, 65, 65, null);
+            p1.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+255, 80, 80, null);
         } else if (check4Players.getID2() == 4){
-            p1.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+255, 65, 65, null);
+            p1.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+255, 80, 80, null);
         }
         
         //Draw Area p3
@@ -125,13 +125,13 @@ public class PlayerInfo extends Bufferimg{
         
         //Check player 3
         if(check4Players.getID3() == 1){
-            p1.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+450, 65, 65, null);
+            p1.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+450, 80, 80, null);
         } else if(check4Players.getID3() == 2){
-            p1.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+450, 65, 65, null);
+            p1.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+450, 80, 80, null);
         } else if(check4Players.getID3() == 3){
-            p1.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+450, 65, 65, null);
+            p1.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+450, 80, 80, null);
         } else if (check4Players.getID3() == 4){
-            p1.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+450, 65, 65, null);
+            p1.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+450, 80, 80, null);
         }
         
         //Draw area p4
@@ -147,13 +147,13 @@ public class PlayerInfo extends Bufferimg{
         
         //Check player 4
         if(check4Players.getID4() == 1){
-            p1.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+650, 65, 65, null);
+            p1.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+650, 80, 80, null);
         } else if(check4Players.getID4() == 2){
-            p1.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+650, 65, 65, null);
+            p1.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+650, 80, 80, null);
         } else if(check4Players.getID4() == 3){
-            p1.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+650, 65, 65, null);
+            p1.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+650, 80, 80, null);
         } else if(check4Players.getID4() == 4){
-            p1.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+650, 65, 65, null);
+            p1.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+650, 80, 80, null);
         }
     }
     
@@ -171,13 +171,13 @@ public class PlayerInfo extends Bufferimg{
         
         //Check player 1
         if(check3Players.getID1() == 1){
-            p2.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+60, 65, 65, null);
+            p2.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+60, 80, 80, null);
         } else if(check3Players.getID1() == 2){
-            p2.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+60, 65, 65, null);
+            p2.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+60, 80, 80, null);
         } else if(check3Players.getID1() == 3){
-            p2.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+60, 65, 65, null);
+            p2.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+60, 80, 80, null);
         } else if(check3Players.getID1() == 4) {
-            p2.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+60, 65, 65, null);
+            p2.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+60, 80, 80, null);
         }
 
         //Draw Area p2
@@ -193,13 +193,13 @@ public class PlayerInfo extends Bufferimg{
 
         //Check player 2
         if(check3Players.getID2() == 1){
-            p2.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+330, 65, 65, null);
+            p2.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+330, 80, 80, null);
         } else if(check3Players.getID2() == 2){
-            p2.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+330, 65, 65, null);           
+            p2.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+330, 80, 80, null);           
         } else if (check3Players.getID2() == 3){
-            p2.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+330, 65, 65, null);
+            p2.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+330, 80, 80, null);
         } else if (check3Players.getID2() == 4){
-            p2.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+330, 65, 65, null);
+            p2.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+330, 80, 80, null);
         }
 
         //Draw Area 3
@@ -215,13 +215,13 @@ public class PlayerInfo extends Bufferimg{
     
         //Check player 3
         if(check3Players.getID3() == 1){
-            p2.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+590, 65, 65, null);
+            p2.drawImage(avatar[0].image, gp.boardsize, gp.Menuheight*16+590, 80, 80, null);
         } else if(check3Players.getID3() == 2){
-            p2.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+590, 65, 65, null);
+            p2.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+590, 80, 80, null);
         } else if(check3Players.getID3() == 3){
-            p2.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+590, 65, 65, null);
+            p2.drawImage(avatar[2].image, gp.boardsize, gp.Menuheight*16+590, 80, 80, null);
         } else if (check3Players.getID3() == 4){
-            p2.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+590, 65, 65, null);
+            p2.drawImage(avatar[3].image, gp.boardsize, gp.Menuheight*16+590, 80, 80, null);
         }
     }
 
@@ -258,7 +258,6 @@ public class PlayerInfo extends Bufferimg{
         p3.setColor(new Color(0, 102, 102));
         p3.drawString("Player 2",gp.boardsize +75,(gp.Menuheight*16+ ((832- gp.Menuheight*16)/2))+30);
         p3.drawString("$" + money.getMoney(),gp.boardsize  +160,(gp.Menuheight*16+ ((832- gp.Menuheight*16)/2))+30+100);
-        p3.drawImage(avatar[1].image, gp.boardsize, gp.Menuheight*16+445, 80, 80, null);
 
         //Check player 2
         if(check2Players.getID2() == 1){
