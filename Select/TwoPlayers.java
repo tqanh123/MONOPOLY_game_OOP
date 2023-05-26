@@ -131,15 +131,19 @@ public class TwoPlayers extends javax.swing.JFrame {
         } else if (player1.getSelectedItem() == "Character 1"){
             ImageIcon picture = new ImageIcon("res/Picture/c1.png");
             pic1.setIcon(picture);
+            id1 = 1;
         } else if (player1.getSelectedItem() == "Character 2"){
             ImageIcon picture = new ImageIcon("res/Picture/c2.png");
             pic1.setIcon(picture);
+            id1 = 2;
         } else if (player1.getSelectedItem() == "Character 3"){
             ImageIcon picture = new ImageIcon("res/Picture/c3.png");
             pic1.setIcon(picture);
+            id1 = 3;
         }else if (player1.getSelectedItem() == "Character 4"){
             ImageIcon picture = new ImageIcon("res/Picture/c4.png");
             pic1.setIcon(picture);
+            id1 = 4;
         }
     }//GEN-LAST:event_player1ActionPerformed
 
@@ -150,15 +154,19 @@ public class TwoPlayers extends javax.swing.JFrame {
         } else if (player2.getSelectedItem() == "Character 1"){
             ImageIcon picture = new ImageIcon("res/Picture/c1.png");
             pic2.setIcon(picture);
+            id2 = 1;
         } else if (player2.getSelectedItem() == "Character 2"){
             ImageIcon picture = new ImageIcon("res/Picture/c2.png");
             pic2.setIcon(picture);
+            id2 = 2;
         } else if (player2.getSelectedItem() == "Character 3"){
             ImageIcon picture = new ImageIcon("res/Picture/c3.png");
             pic2.setIcon(picture);
+            id2 = 3;
         }else if (player2.getSelectedItem() == "Character 4"){
             ImageIcon picture = new ImageIcon("res/Picture/c4.png");
             pic2.setIcon(picture);
+            id2 = 4;
         }
     }//GEN-LAST:event_player2ActionPerformed
 
@@ -206,6 +214,14 @@ public class TwoPlayers extends javax.swing.JFrame {
         });
     }
 
+    public static int getID1(){
+        return id1;
+    }
+
+    public static int getID2(){
+        return id2;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -214,5 +230,8 @@ public class TwoPlayers extends javax.swing.JFrame {
     private javax.swing.JButton play;
     private javax.swing.JComboBox<String> player1;
     private javax.swing.JComboBox<String> player2;
+
+    private static int id1;
+    private static int id2;
     // End of variables declaration//GEN-END:variables
 }
