@@ -10,6 +10,7 @@ import java.awt.Graphics2D;
 
 import Main.GamePanel;
 import button.ActiveButton;
+import button.Button;
 import button.Jail;
 import button.LandButton;
 import button.StationButton;
@@ -45,10 +46,10 @@ public class Player {
         this.id = id;
     }
 
-    public void buy(ActiveButton property){
-        addMoney(-property.getPurchaseAmount());
-        property.setOwn(true);
-        properties.add(property);
+    public void buy(ActiveButton lands){
+        addMoney(-lands.getPurchaseAmount());
+        lands.setOwn(true);
+        properties.add(lands);
         // sortPropertiesByGroup(properties);
     }
 

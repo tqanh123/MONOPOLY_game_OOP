@@ -159,8 +159,8 @@ public class DiceButton {
         // System.out.println("upadte");
         Random rand = new Random();
 
-        numDice1 = rand.nextInt(0, 6);
-        numDice2 = rand.nextInt(0, 6);
+        numDice1 = rand.nextInt( 6);
+        numDice2 = rand.nextInt( 6);
     }
 
     public int getNumDice1() {

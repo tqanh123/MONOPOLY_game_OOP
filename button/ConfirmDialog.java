@@ -7,9 +7,10 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import Main.GamePanel;
 
 public class ConfirmDialog extends JFrame {
-
+    
     // public ConfirmDialog() {
     //     getContentPane().setLayout(null);
     //     setTitle("Confirm");
@@ -23,7 +24,7 @@ public class ConfirmDialog extends JFrame {
 
     // }
 
-    public static void showOption(Button lands) {
+    public static void showOption(Button lands, int id, GamePanel gp) {
 
         ConfirmDialog cdframe = new ConfirmDialog();
         ImageIcon icon = new ImageIcon("Dice1.gif");
@@ -33,15 +34,21 @@ public class ConfirmDialog extends JFrame {
 
         if (x == 0) {
             System.out.println("a Land");
+            gp.monopoly.player[id].buy((ActiveButton)lands);
+
 
         }else if (x == 1) {
-
+            lands.setNumHouse(1);
             System.out.println("1 house");
         } else if (x == 2) {
+            lands.setNumHouse(2);
             System.out.println("2 house");
+           
         } else if (x == 3) {
+            lands.setNumHouse(3);
             System.out.println("3 house");
         } else if (x == 4) {
+            lands.setNumHouse(4);
             System.out.println("4 house");
         }
         

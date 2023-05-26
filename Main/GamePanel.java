@@ -8,11 +8,16 @@ import button.DiceButton;
 import place.*;
 import player.DrawComponent;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import Menu.MenuBackSide;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.io.IOException;
 
 
 public class GamePanel extends JPanel implements Runnable {
@@ -43,6 +48,7 @@ public class GamePanel extends JPanel implements Runnable {
     DrawComponent component = new DrawComponent(this);
     public final Monopoly monopoly = new Monopoly(this);
     public final DiceButton diceButton = new DiceButton(this);
+    public MenuBackSide backSide = new MenuBackSide(this);
 
     Thread gameThread;
 
@@ -52,11 +58,13 @@ public class GamePanel extends JPanel implements Runnable {
     public final int playState = 1;
     public final int rollState = 2;
     public int gameState = 0;
+    public JFrame parent;
 
-    public GamePanel() {
+    public GamePanel(JFrame window) {
 
         this.setPreferredSize(new Dimension(this.screenWidth, this.screenHeight));
         this.setDoubleBuffered(true);
+        parent = window;
         
     }
 
@@ -66,6 +74,12 @@ public class GamePanel extends JPanel implements Runnable {
         monopoly.MonopolyInitial();
         ui.showMessage(String.format("It's " + monopoly.player[0].getName() + "turn"));
         chance.initialChance();
+        try {
+            backSide.run();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
     }
 
@@ -74,6 +88,11 @@ public class GamePanel extends JPanel implements Runnable {
         gameThread = new Thread(this);
         gameThread.start();
 
+    }
+
+    public void stopGameThread(){
+        gameThread.stop();
+        parent.dispose();
     }
 
     @Override 

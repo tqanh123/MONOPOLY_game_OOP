@@ -87,4 +87,7 @@ public class Button implements ActionListener{
     public int getLandHeight() {
         return landHeight;
     }
+
+    public void setNumHouse(int i) {
+    }
 }

@@ -81,8 +81,8 @@ public class Monopoly {
             return;
         }
         
-        // player[playerId].move(gp.diceButton.getTotalDice());
-        player[playerId].move(3);
+        player[playerId].move(gp.diceButton.getTotalDice());
+        // player[playerId].move(3);
         //Next stages
         Dealing();       
     }
@@ -97,7 +97,7 @@ public class Monopoly {
                 TakeChance(gp.chance.active());
                 break;
             case 4, 14, 23, 32:
-                gp.confirmDialog.showOption(gp.boardPlaces.button[LandId]);
+                // gp.confirmDialog.showOption(gp.boardPlaces.button[LandId], playerId, gp);
                 break;
 
             case 0, 18: 
@@ -127,7 +127,8 @@ public class Monopoly {
                 break;
             
             default :
-                gp.confirmDialog.showOption(gp.boardPlaces.button[LandId]);
+
+                gp.confirmDialog.showOption(gp.boardPlaces.button[LandId], playerId, gp);
                 break;
         }
         

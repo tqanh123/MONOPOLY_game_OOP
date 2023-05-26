@@ -123,8 +123,8 @@ public class Chance extends Button {
 
         for ( i = 0; i < numCards; i++) {
 
-            int x = rand.nextInt(0, 3);
-            int y = rand.nextInt(0, 3);
+            int x = rand.nextInt( 3);
+            int y = rand.nextInt(3);
             
             int k = chanceId[x];
             chanceId[x] = chanceId[y];
