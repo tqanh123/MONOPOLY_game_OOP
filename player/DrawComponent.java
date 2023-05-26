@@ -72,7 +72,7 @@ public class DrawComponent {
 
             int x = gp.monopoly.player[i].getPlayerX();
             int y = gp.monopoly.player[i].getPlayerY();
-            int imageId = i * 4 + gp.monopoly.player[i].getPosition() / 9;
+            int imageId = gp.playerInfo.playerImgId[i] * 4 + gp.monopoly.player[i].getPosition() / 9;
 
             g2.drawImage(playerImage[imageId].image, x, y, 32, 32, null);
         }

@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.awt.Graphics2D;
 
 import Main.GamePanel;
+import Select.EnterNumberOfPlayers;
 import button.ActiveButton;
 import button.Jail;
 import button.LandButton;
@@ -22,9 +22,10 @@ public class Player {
     private int playerX;
     private int playerY;
     private int id;
+    private boolean isBankrupt = false;
 
-    
     GamePanel gp;
+    public static int numPlayer = 0;
     public boolean inJail = false;
     public int outOfJailCards = 0;
     public int turnsInJail = 0;
@@ -122,6 +123,10 @@ public class Player {
         
         setPlayerX(gp.boardPlaces.button[getPosition()].getLandX() + dx[directionID] + px[getId()]);
         setPlayerY(gp.boardPlaces.button[getPosition()].getLandY() + dy[directionID] + py[getId()]);
+
+    }
+
+    public void endGame() {
 
     }
 
@@ -223,4 +228,14 @@ public class Player {
         this.playerY = playerY;
     }
 
+    public boolean getIsBankrupt() {
+        return isBankrupt;
+    }
+
+    public void setIsBankrupt() {
+        isBankrupt = true;
+        numPlayer++;
+        if(numPlayer == EnterNumberOfPlayers.getNum() - 1) endGame();
+    }
 }
+

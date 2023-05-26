@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 import Main.GamePanel;
 
 public class LandButton extends ActiveButton {
-    private int numHouse, numHotels;
+    private int numHouse = 0, numHotels;
     private int rentAmount[] = new int[6];
     private boolean isOwn;
     private int host = 0;

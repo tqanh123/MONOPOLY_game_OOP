@@ -38,10 +38,13 @@ public class ConfirmDialog extends JFrame {
 
             System.out.println("1 house");
         } else if (x == 2) {
+
             System.out.println("2 house");
         } else if (x == 3) {
+
             System.out.println("3 house");
         } else if (x == 4) {
+            
             System.out.println("4 house");
         }
         

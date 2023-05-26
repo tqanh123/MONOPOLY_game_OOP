@@ -1,4 +1,4 @@
-package Main.building;
+package building;
 
 import java.awt.Graphics;
 import java.io.IOException;

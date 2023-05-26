@@ -38,10 +38,10 @@ public class Monopoly {
         dice = new DiceButton(gp);
         player = new Player[4];
 
-        player[0] = new Player(gp, "QAnh", 0, 0, 740, 740);
-        player[1] = new Player(gp, "Dat", 1, 0, 775, 742);
-        player[2] = new Player(gp, "Khanh", 2, 0, 740, 775);
-        player[3] = new Player(gp, "Khiem", 3, 0, 775, 775);
+        player[0] = new Player(gp, "Player1", 0, 0, 740, 740);
+        player[1] = new Player(gp, "Player2", 1, 0, 775, 742);
+        player[2] = new Player(gp, "Player3", 2, 0, 740, 775);
+        player[3] = new Player(gp, "Player4", 3, 0, 775, 775);
 
     }
 
@@ -81,8 +81,8 @@ public class Monopoly {
             return;
         }
         
-        // player[playerId].move(gp.diceButton.getTotalDice());
-        player[playerId].move(3);
+        player[playerId].move(gp.diceButton.getTotalDice());
+        // player[playerId].move(3);
         //Next stages
         Dealing();       
     }
@@ -140,6 +140,10 @@ public class Monopoly {
             count = 0;
             playerId++;
             if (playerId == numPlayer) playerId = 0;
+            while (player[playerId].getIsBankrupt()) {
+                playerId++;
+                if (playerId == numPlayer) playerId = 0;
+            } 
         }
         player[playerId].setContinueRoll(false);
         gp.gameState = gp.initialState;

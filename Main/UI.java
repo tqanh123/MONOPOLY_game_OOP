@@ -43,7 +43,7 @@ public class UI {
             g2.drawString(message, getXforCenteredText(message), gp.boardsize/2);
 
             messageCount++;
-            if (messageCount > 90) {
+            if (messageCount > 60) {
                 messageOn = false;
                 // gp.gameState = gp.playState;
             } 

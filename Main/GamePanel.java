@@ -36,7 +36,7 @@ public class GamePanel extends JPanel implements Runnable {
     public final ConfirmDialog confirmDialog = new ConfirmDialog();
     public final Chance chance = new Chance(this, 0, "Chance", 0, 0, 0, 0, false);
     Sound sound = new Sound();
-    PlayerInfo playerInfo = new PlayerInfo(this);
+    public PlayerInfo playerInfo = new PlayerInfo(this);
     placeDraw placed;
     public final Places boardPlaces = new Places(this);
     Menu menuPlace = new Menu(this);

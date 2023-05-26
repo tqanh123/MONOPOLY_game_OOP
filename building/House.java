@@ -1,4 +1,4 @@
-package Main.building;
+package building;
 
 import button.LandButton;
 
@@ -41,9 +41,9 @@ public class House extends Building {
     private static int getPriceByLevelAndLand(LandButton land, int level){
         if (level == 0) {
             // this is a land
-            return (int) (BASE_PRICE + land.getBufferPrice())/2;
+            return (int) (BASE_PRICE + land.getTotalrent())/2;
         }
-        return (BASE_PRICE + land.getBufferPrice()) * level;
+        return (BASE_PRICE + land.getTotalrent()) * level;
     }
     
 }
