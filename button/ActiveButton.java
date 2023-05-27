@@ -1,11 +1,20 @@
 package button;
 
 import Main.GamePanel;
+import place.placeDraw;
 
 public class ActiveButton extends Button {
-    public int purchaseAmount;
-    public int saleAmount;
+    private int purchaseAmount, saleAmount;
     private boolean isOwn;
+    private int hostId;
+
+    public int getHostId() {
+        return hostId;
+    }
+
+    public void setHostId(int hostId) {
+        this.hostId = hostId;
+    }
 
     public boolean isOwn() {
         return isOwn;

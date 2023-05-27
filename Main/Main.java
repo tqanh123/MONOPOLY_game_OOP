@@ -23,7 +23,7 @@ public class Main {
         window.setResizable(false);
         window.setTitle("Monopoly");
         
-        GamePanel gamePanel = new GamePanel();
+        GamePanel gamePanel = new GamePanel(window);
         gamePanel.setBackground(Color.LIGHT_GRAY);
 
         // JLabel boardGame;

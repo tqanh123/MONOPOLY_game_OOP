@@ -2,8 +2,11 @@ package PlayGame;
 
 import Main.GamePanel;
 import Select.EnterNumberOfPlayers;
+import button.ActiveButton;
 import button.DiceButton;
 import button.Jail;
+import button.LandButton;
+import button.StationButton;
 import place.Bufferimg;
 import player.Player;
 
@@ -15,9 +18,10 @@ public class Monopoly {
     private int playerId;
     public Player[] player;
     private int count = 0;
-    private int[] stationId ={4, 14, 23, 32, 40};
+    public final int[] stationId ={4, 14, 23, 32};
     private int LandId;
-    private int numPlayer = EnterNumberOfPlayers.getNum();
+    private ActiveButton land;
+    public final static int numPlayer = EnterNumberOfPlayers.getNum();
     private int[] dx = {0, 35, 0, 35}, dy = {0, 0, 35, 35};
         
 
@@ -53,7 +57,7 @@ public class Monopoly {
         gp.ui.showMessage(String.format("It's " + player[playerId].getName() + "turn"));
 
         if (player[playerId].isInJail()) {
-            gp.ui.showMessage( String.format("Take %d turns\nto escape the Jail", player[playerId].getTurnInJail() ));
+            gp.ui.showMessage( String.format("Need %d turns to escape the Jail", player[playerId].getTurnInJail()));
         }        
     }
 
@@ -65,7 +69,7 @@ public class Monopoly {
             if (player[playerId].isInJail() == true) player[playerId].escape();
             else if (count == 3) {
 
-                gotoJail(player[playerId].getPosition());
+                gotoJail();
                 player[playerId].setContinueRoll(false);
                 endTurn();
                 return;
@@ -81,8 +85,10 @@ public class Monopoly {
             return;
         }
         
-        player[playerId].move(gp.diceButton.getTotalDice());
-        // player[playerId].move(3);
+        // player[playerId].move((player[playerId].getPosition() + gp.diceButton.getTotalDice()) % 36);
+        player[playerId].move((player[playerId].getPosition() + 12) % 36);
+        // if (playerId == 1) player[playerId].move(7);
+        // else player[playerId].move(8);
         //Next stages
         Dealing();       
     }
@@ -97,7 +103,11 @@ public class Monopoly {
                 TakeChance(gp.chance.active());
                 break;
             case 4, 14, 23, 32:
-                gp.confirmDialog.showOption(gp.boardPlaces.button[LandId]);
+                land = ( (ActiveButton) gp.boardPlaces.button[LandId]);
+                if ( !land.isOwn() && land.getPurchaseAmount() <= player[playerId].getMoney() ) gp.confirmDialog.showOption(gp.boardPlaces.button[LandId], playerId, gp);
+                else {
+                    if (land.getHostId() != playerId) player[playerId].pay(player[land.getHostId()], ((StationButton)land).getTotalrent());
+                }
                 break;
 
             case 0, 18: 
@@ -117,17 +127,28 @@ public class Monopoly {
                 break;
 
             case 34:
-                player[playerId].addMoney(-100);
+                player[playerId].addMoney(-200);
                 gp.ui.showMessage("Super tax");
                 break;
 
             case 27: 
                 player[playerId].setContinueRoll(false);
-                gotoJail(LandId);
+                gotoJail();
                 break;
             
             default :
-                gp.confirmDialog.showOption(gp.boardPlaces.button[LandId]);
+                land = ( (ActiveButton) gp.boardPlaces.button[LandId]);
+                if ( land.isOwn() == false ){
+                    if (land.getPurchaseAmount() < player[playerId].getMoney())
+                        gp.confirmDialog.showOption(gp.boardPlaces.button[LandId], playerId, gp);
+                }
+                else {
+                    if (land.getHostId() == playerId && ((LandButton) land).getNumHouse() != 4) {
+                        if (player[playerId].getMoney() >= ( (land.getId() / 9 + 1) * 50 ))
+                        gp.confirmDialog.showOption(gp.boardPlaces.button[LandId], playerId, gp);
+                    }
+                    else player[playerId].pay(player[land.getHostId()], ((LandButton) land).getTotalrent());
+                }
                 break;
         }
         
@@ -136,6 +157,14 @@ public class Monopoly {
 
     // END STAGE
     public void endTurn() {
+        if(numPlayer - Player.bankRuptPlayer ==  1){
+            for (int i = 0; i < numPlayer; i++) 
+            if (player[i].getIsBankrupt() == false) {
+                    System.out.println("endgame" + Player.bankRuptPlayer + "==" + (numPlayer -1));
+                    System.out.println(i);
+                    player[i].endGame();
+                }
+        }
         if (player[playerId].isContinueRoll() == false) {
             count = 0;
             playerId++;
@@ -155,17 +184,18 @@ public class Monopoly {
         switch (id) {
             case 0:
                 System.out.print("case 0");
-                player[playerId].move(36 - location);
+                player[playerId].move(0);
                 break;
             
             case 1:
             System.out.print("case 1");
                 for (int i: stationId) {
                     if (i > location) {
-                        player[playerId].move(i - location);
+                        player[playerId].move(i);
                         break;
                     }
                 }
+                if (location > 32) player[playerId].move(4);
                 Dealing();
                 break;
 
@@ -176,7 +206,7 @@ public class Monopoly {
 
             case 3:
             System.out.print("case 3");
-                player[playerId].move(-3);
+                player[playerId].moveDirect(location - 3);
                 Dealing();
                 break;
 
@@ -205,23 +235,19 @@ public class Monopoly {
             case 8:
             System.out.print("case 8");
                 player[playerId].setContinueRoll(false);
-                gotoJail(location);
+                gotoJail();
                 break;
             
             case 9:
             System.out.print("case 9");
                 player[playerId].setOutOfJailCards(1);
                 break;
-            
         }
     }
     
-    private void gotoJail(int location){
-        int length = 9 - location;
-        if (length < 0) length +=36;
-        
+    private void gotoJail(){        
         player[playerId].setInJail();
-        player[playerId].move(length);
+        player[playerId].moveDirect(9);
     }
 
     private void visitedJail() {

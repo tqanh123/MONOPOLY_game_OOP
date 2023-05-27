@@ -155,20 +155,20 @@ public class Places extends placeDraw {
         button[35] = lands[35];
       
         //STARTION
-        int r23[] = {50, 100, 200, 400};
-        stationButton[0] = new StationButton(gp, 4,"MARYLEBONE STATION", 0, r23, 500, 250, gp.LandWidth*4 + gp.LandHeight, 705, width, height, false);
+        int r23[] = {0, 50, 100, 200, 400};
+        stationButton[0] = new StationButton(gp, 4,"MARYLEBONE STATION", 0, r23, 200, 200, gp.LandWidth*4 + gp.LandHeight, 705, width, height, false);
         button[4] = stationButton[0];
 
-        int r24[] = {50, 100, 200, 400};
-        stationButton[1] = new StationButton(gp, 14, "FENCHURCH STATION", 0, r24, 700, 350, 0, 343, height, width, false);
+        int r24[] = {0, 50, 100, 200, 400};
+        stationButton[1] = new StationButton(gp, 14, "FENCHURCH STATION", 0, r24, 200, 200, 0, 343, height, width, false);
         button[14] = stationButton[1]; 
 
-        int r25[] = {50, 100, 200, 400};
-        stationButton[2] = new StationButton(gp, 23, "KING CROSS STATION", 0, r25, 1000, 500, 415, 0, width, height, false);
+        int r25[] = {0, 50, 100, 200, 400};
+        stationButton[2] = new StationButton(gp, 23, "KING CROSS STATION", 0, r25, 300, 300, 415, 0, width, height, false);
         button[23] = stationButton[2]; 
 
-        int r26[] = {50, 100, 200, 400};
-        stationButton[3] = new StationButton(gp, 32, "LIVERPOOL ST. STATION", 0, r26, 1500, 750, 705, 415, height, width, false);
+        int r26[] = {0, 50, 100, 200, 400};
+        stationButton[3] = new StationButton(gp, 32, "LIVERPOOL ST. STATION", 0, r26, 300, 300, 705, 415, height, width, false);
         button[32] = stationButton[3]; 
 
     }

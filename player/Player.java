@@ -8,8 +8,10 @@ import java.util.Collections;
 import java.util.List;
 
 import Main.GamePanel;
+import PlayGame.Monopoly;
 import Select.EnterNumberOfPlayers;
 import button.ActiveButton;
+import button.Button;
 import button.Jail;
 import button.LandButton;
 import button.StationButton;
@@ -23,9 +25,12 @@ public class Player {
     private int playerY;
     private int id;
     private boolean isBankrupt = false;
+    private int amount;
+    private int numStation = 0;
+    private int numProperty = 0;
 
     GamePanel gp;
-    public static int numPlayer = 0;
+    public static int bankRuptPlayer = 0;
     public boolean inJail = false;
     public int outOfJailCards = 0;
     public int turnsInJail = 0;
@@ -46,15 +51,46 @@ public class Player {
         this.id = id;
     }
 
-    public void buy(ActiveButton property){
-        addMoney(-property.getPurchaseAmount());
-        property.setOwn(true);
-        properties.add(property);
-        // sortPropertiesByGroup(properties);
+    public void buy(ActiveButton lands){
+        addMoney(-lands.getPurchaseAmount());
+        lands.setOwn(true);
+        if (lands instanceof StationButton) {
+            numStation ++;
+            ((StationButton)lands).setNumStation(numStation);
+            if (numStation > 1)
+            for (int i : gp.monopoly.stationId){
+                if (((ActiveButton)gp.boardPlaces.button[i]).getHostId() == id)
+                    ((StationButton)gp.boardPlaces.button[i]).setNumStation(numStation);
+            }
+        }
+
+        numProperty++;
+        lands.setHostId(id);
+        properties.add(lands);
+    }
+
+    public void buy(ActiveButton lands, int numLand){
+        amount = (lands.getId() / 9 + 1) * 50;
+        lands.setNumHouse(numLand);
+        pay(amount);
     }
 
     public void sell(ActiveButton property){
-        addMoney(property.getSaleAmount());
+        amount = property.getSaleAmount();
+        if (property instanceof LandButton) {
+            amount += ((LandButton) property).getValue();
+            ((LandButton) property).setNumHouse(0);
+        } 
+        else {
+            numStation --;
+            for (int i : gp.monopoly.stationId){
+                if (((ActiveButton)gp.boardPlaces.button[i]).getHostId() == id) 
+                ((StationButton)gp.boardPlaces.button[i]).setNumStation(numStation);
+            }
+        }
+        properties.remove(property);
+        numProperty--;
+        addMoney(amount);
         property.setOwn(false);
     }
 
@@ -63,10 +99,10 @@ public class Player {
 
         for(ActiveButton p : properties){
             if(p instanceof LandButton){
-                total += (((LandButton) p).getTotalrent()) / 2;
+                total += ((LandButton) p).getValue();
             }
 
-            total += ((StationButton) p).getTotalrent() / 2;
+            total += ((StationButton) p).getTotalrent();
         }
 
         return total + money;
@@ -74,14 +110,24 @@ public class Player {
 
     public void addMoney(int addMoney){
         if(money < -addMoney){
-            broke(-addMoney - money);
+            broke(-addMoney);
         }
 
         this.money += addMoney;
     }
 
     private void broke(int amountNeeded){
-        gp.ui.showMessage(String.format("You are missing $" + amountNeeded));
+        gp.gameState = gp.brokenState + getId();
+        while (gp.gameState >= gp.brokenState) {
+            gp.ui.brokenMessage(id, amountNeeded);
+            if (getMoney() >= amountNeeded) gp.gameState = gp.playState;
+            // System.out.println("GameState : " + gp.gameState);
+            if (numProperty == 0 && money < amountNeeded){
+                setIsBankrupt();
+                gp.gameState = gp.playState;
+            } 
+        }
+
     }
 
     public void pay(int amount){
@@ -91,63 +137,56 @@ public class Player {
     public int Repairs() {
         int repairsAmount = 0;
         for (ActiveButton land: properties) 
-            repairsAmount += ((LandButton)land).getNumHouse() * 25 + ((LandButton)land).getNumHotels() * 100;
+            if (land instanceof LandButton){
+                repairsAmount += ((LandButton)land).getNumHouse() * 25;
+                if (((LandButton)land).getNumHouse() == 4) repairsAmount += 75;
+            }
 
         return repairsAmount;
     }
 
     public void pay(Player receiving, int amount){
-        receiving.addMoney(amount);
         addMoney(-amount);
+        receiving.addMoney(amount);
     }
 
-    public void move(int numSquares){
-        position += numSquares;
+    public void moveDirect(int numSquares) {
+        position = numSquares;
+        update();
+    }
 
-        //if pass GO
+    public void move(int numSquares) {
+        while (position != numSquares) moving();
+        // System.out.println("player" + id + ": " + position);
+    }
+
+    public void moving(){
+
+        position++;
+
         if(position >= 36 ){
-            if (inJail == false) {
-                gp.ui.showMessage(String.format(name + " passed GO and collected $200m"));
-                money += 200;
-            }
-
+            // gp.ui.showMessage(String.format(name + " passed GO and collected $200m"));
+            money += 200;
             position %= 36;
         }
-        System.out.println("player" + id + ": " + position);
-        update();
 
+        update();
     }
 
     public void update() {
-        int directionID = getPosition() / 9;
-        
-        setPlayerX(gp.boardPlaces.button[getPosition()].getLandX() + dx[directionID] + px[getId()]);
-        setPlayerY(gp.boardPlaces.button[getPosition()].getLandY() + dy[directionID] + py[getId()]);
+       
+        setPlayerX(gp.boardPlaces.button[getPosition()].getLandX() + dx[getPosition() / 9] + px[getId()]);
+        setPlayerY(gp.boardPlaces.button[getPosition()].getLandY() + dy[getPosition() / 9] + py[getId()]);
 
     }
 
     public void endGame() {
-
+        // gp.ui.showMessage("The Winnwe is player" + id);
+        gp.gameState = gp.winState;
+        while (gp.gameState == gp.winState)
+        gp.ui.winMessage(id);
+        // gp.stopGameThread();
     }
-
-    // private void sortPropertiesByGroup(ArrayList<ActiveButton> properties){
-    //     ArrayList<StationButton> railroads = new ArrayList<>();
-    //     ArrayList<ActiveButton> sorted = new ArrayList<>();
-
-    //     for(ActiveButton property : properties){
-    //         if(property instanceof StationButton){
-    //             railroads.add((StationButton) property);
-    //         } else {
-    //             sorted.add( property);
-    //         }
-    //     }
-    //     Collections.sort(railroads);
-    //     Collections.sort(sorted);
-
-    //     sorted.addAll(railroads);
-
-    //     this.properties = sorted;
-    // }
 
     public void listProperties(){
         if(properties.isEmpty()){
@@ -227,15 +266,24 @@ public class Player {
     public void setPlayerY(int playerY) {
         this.playerY = playerY;
     }
+    
+    public int getNumStation() {
+        return numStation;
+    }
+
+    public void setNumStation(int numStation) {
+        this.numStation = numStation;
+    }
 
     public boolean getIsBankrupt() {
         return isBankrupt;
     }
 
     public void setIsBankrupt() {
+        // System.out.println("Bank rupt");
         isBankrupt = true;
-        numPlayer++;
-        if(numPlayer == EnterNumberOfPlayers.getNum() - 1) endGame();
+        bankRuptPlayer++;
+         
     }
 }
 

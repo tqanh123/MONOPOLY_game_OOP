@@ -54,13 +54,18 @@ public class Button implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        JOptionPane optionPane = new JOptionPane();
-        optionPane.setMessage(toString());
-        optionPane.setMessageType(JOptionPane.PLAIN_MESSAGE);
-    
-        JDialog dialog = optionPane.createDialog(null, getLandName());
-        if (gp.gameState != gp.rollState) dialog.setVisible(true);
+        if (gp.gameState >= gp.brokenState){
+            if (gp.gameState - gp.brokenState == ((ActiveButton) this).getHostId())
+            gp.monopoly.player[((ActiveButton) this).getHostId()].sell((ActiveButton)this);
+        }
+        else {
+            JOptionPane optionPane = new JOptionPane();
+            optionPane.setMessage(toString());
+            optionPane.setMessageType(JOptionPane.PLAIN_MESSAGE);
+        
+            JDialog dialog = optionPane.createDialog(null, getLandName());
+            if (gp.gameState != gp.rollState) dialog.setVisible(true);
+        }
         
     }
 
@@ -86,5 +91,8 @@ public class Button implements ActionListener{
 
     public int getLandHeight() {
         return landHeight;
+    }
+
+    public void setNumHouse(int i) {
     }
 }

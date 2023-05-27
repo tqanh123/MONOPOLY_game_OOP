@@ -1,8 +1,5 @@
 package Menu;
 
-import java.awt.Color;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -11,20 +8,15 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
-import Main.Main;
-import Main.GamePanel;
 import Select.EnterNumberOfPlayers;
 public class LaunchPage implements ActionListener{
-    private JLabel myLabel;
     private JFrame frame;
-    private JLabel backGround;
     private JButton playButton;
+    private JButton ruleButton;
+    private JButton quitButton;
     private int width;
     private int height;
     private String backgroundFilePath;
@@ -38,9 +30,8 @@ public class LaunchPage implements ActionListener{
     public void run() throws IOException{
         frame = new JFrame("MONOPOLY");
         playButton = new JButton("Play");
-        JButton optionsButton = new JButton("Options");
-        JButton ruleButton = new JButton("Rule");
-        JButton quitButton = new JButton("Quit");
+        ruleButton = new JButton("Rule");
+        quitButton = new JButton("Quit");
         File file = new File(backgroundFilePath);
         System.out.println(file.exists());
         BufferedImage image = ImageIO.read(new FileInputStream("res/BackGround/monopoly_background.png"));
@@ -55,11 +46,6 @@ public class LaunchPage implements ActionListener{
         frame.setSize(this.width, this.height);
         frame.setLayout(null);
         frame.setVisible(true);
-        optionsButton.setBounds(100 , 120, 200, 40);
-        optionsButton.setFocusable(false);
-        optionsButton.addActionListener(this);
-
-        frame.add(optionsButton);
 
         ruleButton.setBounds(100, 160, 200, 40);
         ruleButton.setFocusable(false);

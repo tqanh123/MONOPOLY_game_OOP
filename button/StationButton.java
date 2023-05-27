@@ -5,7 +5,7 @@ import Main.GamePanel;
 public class StationButton extends ActiveButton {
 
     private int numStation;
-    private int[] rentAmount = new int[4];
+    private int[] rentAmount = new int[5];
 
     public StationButton(GamePanel gp, int id, String landName, int numStation, int[] rentAmount, int purchaseAmount, int saleAmount, int landX, int landY, int landWidth, int landHeight, boolean isOwn) {
         super(gp, id, landName, purchaseAmount, saleAmount, landX, landY, landWidth, landHeight, isOwn);
@@ -15,7 +15,7 @@ public class StationButton extends ActiveButton {
 
     public int getTotalrent() {
         int[] rent = this.getRentAmount();
-        return rent[this.getNumStation() - 1];
+        return rent[this.getNumStation()];
     }
 
     public int getNumStation() {
@@ -24,6 +24,7 @@ public class StationButton extends ActiveButton {
 
     public void setNumStation(int numStation) {
         this.numStation = numStation;
+        // System.out.print("numStation : " + numStation);
     }
 
     public int[] getRentAmount() {
@@ -35,8 +36,8 @@ public class StationButton extends ActiveButton {
     }
 
     public String toString() {
-        return String.format("Rent for 1 Station: %d\nRent for 2 Stations: %d\nRent for 3 Stations: %d\nRent for 4 Stations: %d"
-        , rentAmount[0], rentAmount[1], rentAmount[2], rentAmount[3]);
+        return String.format("Rent for 1 Station: %d\nRent for 2 Stations: %d\nRent for 3 Stations: %d\nRent for 4 Stations: %d\n\n Purchase amount: %d\nSale amount: %d\nRecent rents amount: %d"
+        , rentAmount[1], rentAmount[2], rentAmount[3], rentAmount[4], super.getPurchaseAmount(), super.getSaleAmount(), getNumStation());
     }
     
     

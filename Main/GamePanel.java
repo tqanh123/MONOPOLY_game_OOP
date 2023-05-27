@@ -2,17 +2,23 @@ package Main;
 
 
 import PlayGame.Monopoly;
+import button.ActiveButton;
 import button.Chance;
 import button.ConfirmDialog;
 import button.DiceButton;
 import place.*;
 import player.DrawComponent;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import Menu.MenuBackSide;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.io.IOException;
 
 
 public class GamePanel extends JPanel implements Runnable {
@@ -40,9 +46,10 @@ public class GamePanel extends JPanel implements Runnable {
     placeDraw placed;
     public final Places boardPlaces = new Places(this);
     Menu menuPlace = new Menu(this);
-    DrawComponent component = new DrawComponent(this);
+    public DrawComponent component = new DrawComponent(this);
     public final Monopoly monopoly = new Monopoly(this);
     public final DiceButton diceButton = new DiceButton(this);
+    public MenuBackSide backSide = new MenuBackSide(this);
 
     Thread gameThread;
 
@@ -51,12 +58,16 @@ public class GamePanel extends JPanel implements Runnable {
     public final int initialState = 0;
     public final int playState = 1;
     public final int rollState = 2;
+    public final int brokenState = 3;
+    public final int winState = 7;
     public int gameState = 0;
+    public JFrame parent;
 
-    public GamePanel() {
+    public GamePanel(JFrame window) {
 
         this.setPreferredSize(new Dimension(this.screenWidth, this.screenHeight));
         this.setDoubleBuffered(true);
+        parent = window;
         
     }
 
@@ -67,6 +78,15 @@ public class GamePanel extends JPanel implements Runnable {
         ui.showMessage(String.format("It's " + monopoly.player[0].getName() + "turn"));
         chance.initialChance();
 
+        monopoly.player[1].pay(470);
+        // monopoly.player[1].addMoney(600);
+        // monopoly.player[1].buy((ActiveButton)boardPlaces.button[4]);
+        // monopoly.player[1].buy((ActiveButton)boardPlaces.button[14]);
+        // monopoly.player[1].buy((ActiveButton)boardPlaces.button[23]);
+        // monopoly.player[1].buy((ActiveButton)boardPlaces.button[32]);
+
+        // monopoly.player[1].buy((ActiveButton)boardPlaces.button[7]);
+
     }
 
     public void startgameThread() {
@@ -74,6 +94,11 @@ public class GamePanel extends JPanel implements Runnable {
         gameThread = new Thread(this);
         gameThread.start();
 
+    }
+
+    public void stopGameThread(){
+        gameThread.stop();
+        parent.dispose();
     }
 
     @Override 
@@ -107,8 +132,6 @@ public class GamePanel extends JPanel implements Runnable {
             
             if (timeRoll >= 1000000000) {
                     
-                // System.out.println(diceButton.getTotalDice());
-                // gameState = playState;
                 timeRoll = 0;
                 drawCount = 0;
             
@@ -118,7 +141,9 @@ public class GamePanel extends JPanel implements Runnable {
     
     public void update() {
         // menuPlace.update();
-        // if (gameState == initialState) monopoly.PlayGame();
+        // for (int i = 0; i < monopoly.numPlayer; i++)
+        //     monopoly.player[i].update();
+
         if (gameState == rollState) diceButton.update();
     }
 

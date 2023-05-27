@@ -1,28 +1,13 @@
 package button;
 
-import java.awt.Graphics2D;
-
 import Main.GamePanel;
 
 public class LandButton extends ActiveButton {
     private int numHouse = 0, numHotels;
     private int rentAmount[] = new int[6];
-    private boolean isOwn;
-    private int host = 0;
-    public int getHost() {
-        return host;
-    }
 
-    public void setHost(int host) {
-        this.host = host;
-    }
-
-    public void setOwn(boolean isOwn) {
-        this.isOwn = isOwn;
-    }
-
-    public boolean isOwn() {
-        return isOwn;
+    public int getValue() {
+        return super.getSaleAmount() + (super.getId() / 9  + 1) * 50 * getNumHouse();
     }
 
     public int mono = 1;
@@ -35,17 +20,14 @@ public class LandButton extends ActiveButton {
     }
 
     public String toString() {
-        return String.format("Number of house: %d\nNumber of hotel: %d\nRent: %d\nRent for 1 house: %d\nRent for 2 houses: %d\nRent for 3 houses: %d\nRent for 4 houses: %d\nRent for hotel: %d \n\nPurchase prices: %d\nSale prices: %d"
-        , numHouse, numHotels, rentAmount[0], rentAmount[1], rentAmount[2], rentAmount[3], rentAmount[4], rentAmount[5], super.getPurchaseAmount(), super.getSaleAmount());
+        return String.format("Number of house: %d\nNumber of hotel: %d\nRent: %d\nRent for 1 house: %d\nRent for 2 houses: %d\nRent for 3 houses: %d\nRent for hotel: %d \n\nPurchase prices: %d\nSale prices: %d\nRecent rent amount: %d"
+        , numHouse, numHotels, rentAmount[0], rentAmount[1], rentAmount[2], rentAmount[3], rentAmount[4], super.getPurchaseAmount(), super.getSaleAmount(), getTotalrent());
     }
 
     public int getTotalrent() {
 
         int[] rent = this.getRentAmount();
-        if (this.getNumHouse() == 0 && this.getNumHotels() == 0) return rent[0] * mono;      
-        else {
-            return (rent[this.getNumHouse()] + rent[5] * this.getNumHotels()) * mono;
-        }
+        return rent[getNumHouse()];
 
     }
 
@@ -53,11 +35,12 @@ public class LandButton extends ActiveButton {
         return numHouse;
     }
 
-    public int getNumHotels() {
-        return numHotels;
-    }
-
     public int[] getRentAmount() {
         return rentAmount;
     }
+
+    public void setNumHouse(int numHouse){
+        this.numHouse = numHouse;
+    }
+
 }

@@ -76,12 +76,6 @@ public class DiceButton {
         }
     }
 
-    public void Active(){
-        // playerid = id;
-        // System.out.println("Active" + isRoll);
-        gp.gameState = gp.rollState;
-    }
-
     public boolean isDouble(){
         if (getNumDice1() == getNumDice2()) return true;
         return false;
@@ -155,12 +149,10 @@ public class DiceButton {
     }
     
     public void update() {
-        // isRoll = true;
-        // System.out.println("upadte");
         Random rand = new Random();
 
-        numDice1 = rand.nextInt(0, 6);
-        numDice2 = rand.nextInt(0, 6);
+        numDice1 = rand.nextInt( 6);
+        numDice2 = rand.nextInt( 6);
     }
 
     public int getNumDice1() {
@@ -169,14 +161,6 @@ public class DiceButton {
 
     public int getNumDice2() {
         return numDice2;
-    }
-
-    public boolean getIsRoll() {
-        return isRoll;
-    }
-
-    public void setIsRoll(boolean isRoll) {
-        this.isRoll = isRoll;
     }
 
     public int getTotalDice() {
