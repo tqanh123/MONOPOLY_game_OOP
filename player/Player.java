@@ -52,10 +52,12 @@ public class Player {
     }
 
     public void buy(ActiveButton lands){
+        gp.playSE(2);
         addMoney(-lands.getPurchaseAmount());
         lands.setOwn(true);
         if (lands instanceof StationButton) {
             numStation ++;
+            if (numStation == 4) endGame();
             ((StationButton)lands).setNumStation(numStation);
             if (numStation > 1)
             for (int i : gp.monopoly.stationId){
@@ -70,6 +72,7 @@ public class Player {
     }
 
     public void buy(ActiveButton lands, int numLand){
+        gp.playSE(2);
         amount = (lands.getId() / 9 + 1) * 50;
         lands.setNumHouse(numLand);
         pay(amount);

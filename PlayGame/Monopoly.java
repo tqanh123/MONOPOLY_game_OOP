@@ -85,8 +85,8 @@ public class Monopoly {
             return;
         }
         
-        // player[playerId].move((player[playerId].getPosition() + gp.diceButton.getTotalDice()) % 36);
-        player[playerId].move((player[playerId].getPosition() + 12) % 36);
+        player[playerId].move((player[playerId].getPosition() + gp.diceButton.getTotalDice()) % 36);
+        // player[playerId].move((player[playerId].getPosition() + 12) % 36);
         // if (playerId == 1) player[playerId].move(7);
         // else player[playerId].move(8);
         //Next stages
@@ -100,6 +100,7 @@ public class Monopoly {
 
         switch(LandId) {
             case 6, 11, 20, 30:
+                gp.playSE(3);
                 TakeChance(gp.chance.active());
                 break;
             case 4, 14, 23, 32:
@@ -132,6 +133,7 @@ public class Monopoly {
                 break;
 
             case 27: 
+                gp.playSE(4);
                 player[playerId].setContinueRoll(false);
                 gotoJail();
                 break;

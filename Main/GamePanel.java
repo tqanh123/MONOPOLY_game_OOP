@@ -78,7 +78,7 @@ public class GamePanel extends JPanel implements Runnable {
         ui.showMessage(String.format("It's " + monopoly.player[0].getName() + "turn"));
         chance.initialChance();
 
-        monopoly.player[1].pay(470);
+        // monopoly.player[1].pay(470);
         // monopoly.player[1].addMoney(600);
         // monopoly.player[1].buy((ActiveButton)boardPlaces.button[4]);
         // monopoly.player[1].buy((ActiveButton)boardPlaces.button[14]);

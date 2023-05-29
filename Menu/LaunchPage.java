@@ -11,6 +11,8 @@ import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import Main.GamePanel;
+import Main.GameRule;
 import Select.EnterNumberOfPlayers;
 public class LaunchPage implements ActionListener{
     private JFrame frame;
@@ -37,7 +39,7 @@ public class LaunchPage implements ActionListener{
         BufferedImage image = ImageIO.read(new FileInputStream("res/BackGround/monopoly_background.png"));
         frame.setContentPane(new ImagePanel(image, width, height));
 
-        playButton.setBounds(100, 80, 200, 40);
+        playButton.setBounds(100, 110, 200, 40);
         playButton.setFocusable(false);
         playButton.addActionListener(this);
 
@@ -47,13 +49,13 @@ public class LaunchPage implements ActionListener{
         frame.setLayout(null);
         frame.setVisible(true);
 
-        ruleButton.setBounds(100, 160, 200, 40);
+        ruleButton.setBounds(100, 150, 200, 40);
         ruleButton.setFocusable(false);
         ruleButton.addActionListener(this);
 
         frame.add(ruleButton);
 
-        quitButton.setBounds(100 , 200, 200, 40);
+        quitButton.setBounds(100 , 190, 200, 40);
         quitButton.setFocusable(false);
         quitButton.addActionListener(this);
 
@@ -73,9 +75,15 @@ public class LaunchPage implements ActionListener{
             frame.setVisible(false);
            
         }
+        if(e.getSource()== ruleButton  ){
+            GameRule gameRule = new GameRule();
+           gameRule.setVisible(true);
+            frame.setVisible(false);
+           
+        }
         
-    }
-    
+    }   
+
     private void dispose() {
     }
 }
